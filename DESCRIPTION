@@ -1,9 +1,9 @@
 Package: diagonals
-Title: What the Package Does (one line, title case)
+Title: block diagonal extraction or replacement
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Authors@R: person("Bastiaan", "Quast", email = "bquast@gmail.com", role = c("aut", "cre"))
+Description: Several tools for handling block matrices and similar constucts.
 Depends: R (>= 3.2.0)
-License: What license is it under?
+License: GPL-3
 LazyData: true
 Suggests: testthat
