@@ -10,6 +10,9 @@ minus_block_matrix <- function( x, step ) {
   # check if square matrix
   if ( dim(x)[1] == dim(x)[2]) {
 
+    # check that dimensions of this square matrix are a multiple of step
+    if(dim(x)[1] %% step != 0) warning("Matrix dimensions are not a multiple of step, problems will occur in the bottom right of the output matrix.")
+
     # remove square blocks
     for (j in 1:(dim(x)[1] %/% step) ) {
       p <- seq( ((j-1)*step + 1), j*step )
