@@ -4,12 +4,12 @@
 \alias{minus_block_matrix}
 \title{Minus Block matrix}
 \usage{
-minus_block_matrix(x, s)
+minus_block_matrix(x, step)
 }
 \arguments{
 \item{x}{a square matrix}
 
-\item{s}{the dimensions (width = height) of the block matrix being dropped over the diagonal of matrix x}
+\item{step}{the dimensions (width = height) of the block matrix being dropped over the diagonal of matrix x}
 }
 \description{
 Minus Block matrix

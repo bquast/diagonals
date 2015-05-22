@@ -4,12 +4,12 @@
 \alias{block_matrix}
 \title{Block matrix}
 \usage{
-block_matrix(x, s)
+block_matrix(x, step)
 }
 \arguments{
 \item{x}{a square matrix}
 
-\item{s}{the dimensions (width = height) of the block matrix being selected over the diagonal of matrix x}
+\item{step}{the dimensions (width = height) of the block matrix being selected over the diagonal of matrix x}
 }
 \description{
 Block matrix
