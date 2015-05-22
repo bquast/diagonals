@@ -60,3 +60,13 @@ test_that("output content matches", {
   expect_equal(rowSums(mbm8x4), c(51, 54, 49, 52, 47, 50, 45, 48) )
   expect_equal(rowSums(mbm9x3), c(29, 31, 33, 26, 28, 30, 23, 25, 27) )
 })
+
+context("errors and warnings")
+
+test_that("warning for square-matrix non-multiple of step", {
+  expect_warning(minus_block_matrix(matrix(1:49, nrow=7, ncol=7), step=3 ) )
+})
+
+test_that("error for non-square non-multiple of step", {
+  expect_error(minus_block_matrix(matrix(1:125, nrow=25, ncol=5), step =3 ) )
+})
