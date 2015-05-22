@@ -11,9 +11,39 @@ vignette: >
 
 Block-diagonal matrices can be extracted or removed using two small functions inplemented here, in addition, now square matrices are supported.
 
-Block diagonal matrices occur when we combine two dimensions of a data set on one edge of a matrix.
+Block diagonal matrices occur when we combine two dimensions of a data set on one edge of a matrix. For examle, trade-flow data in the [http://cran.r-project.org/web/packages/decompr/index.html](decompr) and [http://cran.r-project.org/web/packages/gvc/index.html](gvc) package have each country-industry combination occur on each edge of the matrix.
 
-```{r}
+```{r, matrix}
 m <- matrix(1:64, nrow=8)
 m
 ```
+
+We can now drop everything except a block diagonal.
+
+```{r, block_matrix}
+library(diagonals)
+block_matrix(m, step=2)
+```
+
+Or drop only the block diagonal.
+
+```{r, minus_block_matrix}
+minus_block_matrix(m, step=2)
+```
+
+The `step` can vary, but dimensions should be multiples of `step`.
+
+```{r, step}
+block_matrix(m, step=4)
+```
+
+Even non-square matrices are supported, as long as each dimension is a multiple of step (i.e. `dim(matrix) %% step == c(0, 0) ).
+
+```{r non-squre}
+nsm <- matrix(1:27, nrow=9, ncol=3 )
+```
+
+```{r block-non-squre}
+block_matrix(nsm, step=3)
+```
+
