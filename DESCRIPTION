@@ -1,6 +1,6 @@
 Package: diagonals
 Title: block diagonal extraction or replacement
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Bastiaan", "Quast", email = "bquast@gmail.com", role = c("aut", "cre"))
 Description: Several tools for handling block matrices and similar constucts.
 Depends: R (>= 3.2.0)
