@@ -6,4 +6,6 @@ Description: Several tools for handling block matrices and similar constucts.
 Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
-Suggests: testthat
+Suggests: testthat,
+    knitr
+VignetteBuilder: knitr

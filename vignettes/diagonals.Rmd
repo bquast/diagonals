@@ -1,0 +1,19 @@
+---
+title: "diagonals"
+author: "Bastiaan Quast"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Block-diagonal matrices can be extracted or removed using two small functions inplemented here, in addition, now square matrices are supported.
+
+Block diagonal matrices occur when we combine two dimensions of a data set on one edge of a matrix.
+
+```{r}
+m <- matrix(1:64, nrow=8)
+m
+```
