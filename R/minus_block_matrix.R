@@ -4,6 +4,24 @@
 #' @param x a square matrix
 #' @param step the dimensions (width = height) of the block matrix being dropped over the diagonal of matrix x
 #' @export
+#' @examples
+#' # create a square matrix
+#' m <- matrix(1:64, nrow=8)
+#'
+#' # select a block matrix with step=2
+#' minus_block_matrix(m, step=2)
+#'
+#' # select a block matrix with step=4
+#' minus_block_matrix(m, step=4)
+#'
+#' # create a non-square matrix
+#' nsm <- matrix(1:27, nrow=9, ncol=3 )
+#'
+#' # check that both dimensions are multiples of step=3
+#' dim(nsm) %% 3 == c(0, 0)
+#'
+#' # select the diagonal step matrix
+#' minus_block_matrix(nsm, step=3)
 
 minus_block_matrix <- function( x, step ) {
 
