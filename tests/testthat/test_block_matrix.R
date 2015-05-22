@@ -1,4 +1,4 @@
-context("block matrix")
+context("square block matrix")
 
 # create matrix
 m8x8 <- matrix(1:(8*8), nrow = 8)
