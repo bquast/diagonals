@@ -5,8 +5,8 @@ m8x8 <- matrix(1:(8*8), nrow = 8)
 m9x9 <- matrix(1:(9*9), nrow = 9)
 
 # apply block_matrix()
-mbm8x8 <- minus_block_matrix(m8x8, 2)
-mbm9x9 <- minus_block_matrix(m9x9, 3)
+mbm8x8 <- minus_block_matrix(m8x8, size = 2)
+mbm9x9 <- minus_block_matrix(m9x9, size = 3)
 
 
 test_that("output size matches", {
@@ -26,8 +26,8 @@ m4x8 <- matrix(1:(4*8), nrow = 4)
 m3x9 <- matrix(1:(3*9), nrow = 3)
 
 # apply minus_block_matrix()
-mbm4x8 <- minus_block_matrix(m4x8, 2)
-mbm3x9 <- minus_block_matrix(m3x9, 3)
+mbm4x8 <- minus_block_matrix(m4x8, size = 2)
+mbm3x9 <- minus_block_matrix(m3x9, size = 3)
 
 
 test_that("output size matches", {
@@ -47,8 +47,8 @@ m8x4 <- matrix(1:(8*4), nrow = 8)
 m9x3 <- matrix(1:(9*3), nrow = 9)
 
 # apply minus_block_matrix()
-mbm8x4 <- minus_block_matrix(m8x4, 2)
-mbm9x3 <- minus_block_matrix(m9x3, 3)
+mbm8x4 <- minus_block_matrix(m8x4, size = 2)
+mbm9x3 <- minus_block_matrix(m9x3, size = 3)
 
 
 test_that("output size matches", {
