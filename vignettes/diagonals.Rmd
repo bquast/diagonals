@@ -22,30 +22,30 @@ We can now drop everything except a block diagonal.
 
 ```{r, block_matrix}
 library(diagonals)
-block_matrix(m, step=2)
+block_matrix(m, size=2)
 ```
 
 Or drop only the block diagonal.
 
 ```{r, minus_block_matrix}
-minus_block_matrix(m, step=2)
+minus_block_matrix(m, size=2)
 ```
 
-The `step` can vary, but dimensions should be multiples of `step`.
+The `size` can vary, but dimensions should be multiples of `size`.
 
-```{r, step}
-block_matrix(m, step=4)
+```{r, size}
+block_matrix(m, size=4)
 ```
 
-Even non-square matrices are supported, as long as each dimension is a multiple of step (i.e. `dim(matrix) %% step == c(0, 0)` ).
+Even non-square matrices are supported, as long as each dimension is a multiple of size (i.e. `dim(matrix) %% size == c(0, 0)` ).
 
 ```{r non-squre}
 nsm <- matrix(1:27, nrow=9, ncol=3 )
-block_matrix(nsm, step=3)
+block_matrix(nsm, size=3)
 ```
 
 Or this.
 
 ```{r}
-block_matrix( t(nsm), step=3 )
+block_matrix( t(nsm), size=3 )
 ```
