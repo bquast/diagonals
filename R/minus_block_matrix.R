@@ -26,6 +26,16 @@
 
 minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
 
+  if (is.null(steps) & is.null(size) ) {
+
+    # issue warning
+    warning("Both steps and size are missing, using a size of 1 (diagonal).")
+
+    # set size to 1 integer
+    size <- 1L
+
+  }
+
   # check if square matrix
   if ( dim(x)[1] == dim(x)[2]) {
 
