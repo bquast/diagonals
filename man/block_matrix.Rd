@@ -4,12 +4,14 @@
 \alias{block_matrix}
 \title{Block matrix}
 \usage{
-block_matrix(x, step)
+block_matrix(x, steps = NULL, size = NULL)
 }
 \arguments{
-\item{x}{a matrix where the dimensions are both multiples of step}
+\item{x}{a matrix where the dimensions are both multiples of size}
 
-\item{step}{the dimensions of the block matrix being selected over the diagonal of matrix x}
+\item{steps}{the required number of steps (block matrices) across the diagonal}
+
+\item{size}{the largest dimension of the matrix being selected over the diagonal of matrix}
 }
 \description{
 Block matrix
@@ -18,19 +20,19 @@ Block matrix
 # create a square matrix
 m <- matrix(1:64, nrow=8)
 
-# select a block matrix with step=2
-block_matrix(m, step=2)
+# select a block matrix with size=2
+block_matrix(m, size=2)
 
-# select a block matrix with step=4
-block_matrix(m, step=4)
+# select a block matrix with size=4
+block_matrix(m, size=4)
 
 # create a non-square matrix
 nsm <- matrix(1:27, nrow=9, ncol=3 )
 
-# check that both dimensions are multiples of step=3
+# check that both dimensions are multiples of size=3
 dim(nsm) \%\% 3 == c(0, 0)
 
-# select the diagonal step matrix
-block_matrix(nsm, step=3)
+# select the diagonal size matrix
+block_matrix(nsm, size=3)
 }
 
