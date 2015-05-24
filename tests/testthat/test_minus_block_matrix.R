@@ -64,9 +64,9 @@ test_that("output content matches", {
 context("errors and warnings")
 
 test_that("warning for square-matrix non-multiple of step", {
-  expect_warning(minus_block_matrix(matrix(1:49, nrow=7, ncol=7), step=3 ) )
+  expect_warning(minus_block_matrix(matrix(1:49, nrow=7, ncol=7), size=3 ) )
 })
 
 test_that("error for non-square non-multiple of step", {
-  expect_error(minus_block_matrix(matrix(1:125, nrow=25, ncol=5), step =3 ) )
+  expect_error(minus_block_matrix(matrix(1:125, nrow=25, ncol=5), size=3 ) )
 })
