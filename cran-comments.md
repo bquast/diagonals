@@ -9,11 +9,10 @@ There were no ERRORs or WARNINGs.
 
 There were 2 NOTES:
 
-Possibly mis-spelled words in DESCRIPTION:
-  decompr (5:361)
-  gvc (5:375)
-  
-  * checking package dependencies ... NOTE
-  No repository set, so cyclic dependency check skipped
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
+New submission
 
-Both of words are CRAN package names.
+* checking package dependencies ... NOTE
+  No repository set, so cyclic dependency check skipped
+  
