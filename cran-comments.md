@@ -9,6 +9,8 @@ There were no ERRORs or WARNINGs.
 
 There was 1 NOTE:
 
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Bastiaan Quast <bquast@gmail.com>’
-New submission
+Possibly mis-spelled words in DESCRIPTION:
+  decompr (5:361)
+  gvc (5:375)
+
+Both of words are CRAN package names.
