@@ -2,7 +2,7 @@ Package: diagonals
 Title: Block Diagonal Extraction or Replacement
 Version: 0.1.0
 Authors@R: person("Bastiaan", "Quast", email = "bquast@gmail.com", role = c("aut", "cre"))
-Description: Several tools for handling block matrices and similar constructs. Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, now square matrices are supported. Block diagonal matrices occur when we combine two dimensions of a data set on one edge of a matrix. For example, trade-flow data in the "decompr" and "gvc" packages have each country-industry combination occur on each edge of the matrix.
+Description: Several tools for handling block matrices and similar constructs. Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported. Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the "decompr" and "gvc" packages have each country-industry combination occur on each edge of the matrix.
 Depends: R (>= 3.1.3)
 License: GPL-3
 LazyData: true
