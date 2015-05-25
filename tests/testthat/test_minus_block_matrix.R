@@ -67,6 +67,10 @@ test_that("warning for square-matrix non-multiple of step", {
   expect_warning(minus_block_matrix(matrix(1:49, nrow=7, ncol=7), size=3 ) )
 })
 
+test_that("warning for no steps or size", {
+  expect_warning(minus_block_matrix(matrix(1:16, nrow=4)))
+})
+
 test_that("error for non-square non-multiple of step", {
   expect_error(minus_block_matrix(matrix(1:125, nrow=25, ncol=5), size=3 ) )
 })
