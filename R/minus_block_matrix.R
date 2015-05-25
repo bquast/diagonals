@@ -26,13 +26,34 @@
 
 minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
 
-  if (is.null(steps) & is.null(size) ) {
+
+  if (!is.null(size)) {
+    #nothing
+  } else if ( is.null(size) & !is.null(steps) ) {
+
+    # choose longest edge to set size of step
+    if (dim(x)[1] >= dim(x)[2]) {
+      size <- dim(x)[1] %/% steps
+    } else {
+      size <- dim(x)[2] %/% steps
+    }
+
+  } else if (is.null(steps) & is.null(size) ) {
 
     # issue warning
-    warning("Both steps and size are missing, using a size of 1 (diagonal).")
+    warning("Both steps and size are missing, trying to infer a steps size from the dimensions.")
 
-    # set size to 1 integer
-    size <- 1L
+    if (dim(x)[1] > dim(x)[2] & dim(x)[1] %% dim(x)[2] == 0) {
+      size <- dim(x)[1] %/% dim(x)[2]
+      message( paste("Setting step size to", size) )
+    } else if (dim(x)[2] > dim(x)[1] & dim(x)[2] %% dim(x)[1] == 0 ) {
+      size <- dim(x)[2] %/% dim(x)[1]
+      message( paste("Setting step size to", size) )
+    } else {
+      # set size to 1 integer
+      size <- 1L
+      warning( paste("No good step size good be infered from the dimensions, setting step size to", size) )
+    }
 
   }
 
