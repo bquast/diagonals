@@ -48,15 +48,15 @@ minus_rectangle_matrix <- function( x, steps = NULL, size = NULL, replacement = 
     # calculate size using the width
     size <- as.integer( dim(x)[2] %/% steps )
 
-  } else if ( is.null(size) & !is.null(step) & wide==FALSE ) {
+  } else if ( is.null(size) & !is.null(steps) & wide==FALSE ) {
 
     # calculate size using the height
     size <- as.integer( dim(x)[1] %/% steps )
 
-  } else if (is.null(steps) & is.null(size) ) {
+  } else if ( is.null(size) & is.null(steps) ) {
 
     # issue warning
-    warning("Both steps and size parameters are NULL, trying to infer a steps size from the dimensions.")
+    warning("Both steps and size parameters are NULL, trying to infer a size from the dimensions.")
 
     # try to infer size from dimensions
     if ( wide & dim(x)[2] %% dim(x)[1] == 0 ) {
