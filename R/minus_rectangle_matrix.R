@@ -48,7 +48,7 @@ minus_rectangle_matrix <- function( x, steps = NULL, size = NULL, replacement = 
     # calculate size using the width
     size <- as.integer( dim(x)[2] %/% steps )
 
-  } else if ( in.null(size) & !is.null(step) & wide==FALSE ) {
+  } else if ( is.null(size) & !is.null(step) & wide==FALSE ) {
 
     # calculate size using the height
     size <- as.integer( dim(x)[1] %/% steps )
