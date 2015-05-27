@@ -2,21 +2,24 @@
 % Please edit documentation in R/block_matrix.R
 \name{block_matrix}
 \alias{block_matrix}
-\title{Block matrix}
+\title{Block Matrix}
 \usage{
 block_matrix(x, steps = NULL, size = NULL, replacement = 0)
 }
 \arguments{
-\item{x}{a matrix where the dimensions are both multiples of size}
+\item{x}{a square matrix where the dimensions are integer multiples of size or integer dividors of steps}
 
 \item{steps}{the required number of steps (block matrices) across the diagonal}
 
-\item{size}{the largest dimension of the matrix being selected over the diagonal of matrix}
+\item{size}{the width or height of the matrix being dropped over the diagonal of matrix x}
 
-\item{replacement}{value to be inserted off the diagonal, by default this is zero (0).}
+\item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
 }
 \description{
-Block matrix
+Block Matrix
+}
+\details{
+Either steps or size is expected to be provided.
 }
 \examples{
 # create a square matrix
@@ -27,14 +30,5 @@ block_matrix(m, steps=2)
 
 # select a block matrix with four steps
 block_matrix(m, steps=4)
-
-# create a non-square matrix
-nsm <- matrix(1:27, nrow=9, ncol=3 )
-
-# check that both dimensions are multiples of steps=3
-dim(nsm) \%\% 3 == c(0, 0)
-
-# select the diagonal matrix
-block_matrix(nsm, steps=3)
 }
 

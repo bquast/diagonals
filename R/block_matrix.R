@@ -1,10 +1,11 @@
-#' Block matrix
+#' Block Matrix
 #'
 #' @name block_matrix
-#' @param x a matrix where the dimensions are both multiples of size
+#' @param x a square matrix where the dimensions are integer multiples of size or integer dividors of steps
 #' @param steps the required number of steps (block matrices) across the diagonal
-#' @param size the largest dimension of the matrix being selected over the diagonal of matrix
-#' @param replacement value to be inserted off the diagonal, by default this is zero (0).
+#' @param size the width or height of the matrix being dropped over the diagonal of matrix x
+#' @param replacement value to be inserted on the diagonal, by default this is zero (0).
+#' @details Either steps or size is expected to be provided.
 #' @export
 #' @examples
 #' # create a square matrix
@@ -16,14 +17,6 @@
 #' # select a block matrix with four steps
 #' block_matrix(m, steps=4)
 #'
-#' # create a non-square matrix
-#' nsm <- matrix(1:27, nrow=9, ncol=3 )
-#'
-#' # check that both dimensions are multiples of steps=3
-#' dim(nsm) %% 3 == c(0, 0)
-#'
-#' # select the diagonal matrix
-#' block_matrix(nsm, steps=3)
 
 block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
 
