@@ -42,7 +42,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) 
   } else if (is.null(steps) & is.null(size) ) {
 
     # issue warning
-    warning("Both steps and size are missing, trying to infer a steps size from the dimensions.")
+    warning("Both steps and size parameters are NULL, trying to infer a steps size from the dimensions.")
 
     if (dim(x)[1] > dim(x)[2] & dim(x)[1] %% dim(x)[2] == 0) {
       size <- dim(x)[1] %/% dim(x)[2]
