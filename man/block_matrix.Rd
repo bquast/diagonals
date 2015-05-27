@@ -4,7 +4,7 @@
 \alias{block_matrix}
 \title{Block matrix}
 \usage{
-block_matrix(x, steps = NULL, size = NULL)
+block_matrix(x, steps = NULL, size = NULL, replacement = 0)
 }
 \arguments{
 \item{x}{a matrix where the dimensions are both multiples of size}
@@ -12,6 +12,8 @@ block_matrix(x, steps = NULL, size = NULL)
 \item{steps}{the required number of steps (block matrices) across the diagonal}
 
 \item{size}{the largest dimension of the matrix being selected over the diagonal of matrix}
+
+\item{replacement}{value to be inserted off the diagonal, by default this is zero (0).}
 }
 \description{
 Block matrix

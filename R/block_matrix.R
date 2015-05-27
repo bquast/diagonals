@@ -4,6 +4,7 @@
 #' @param x a matrix where the dimensions are both multiples of size
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the largest dimension of the matrix being selected over the diagonal of matrix
+#' @param replacement value to be inserted off the diagonal, by default this is zero (0).
 #' @export
 #' @examples
 #' # create a square matrix
@@ -24,10 +25,16 @@
 #' # select the diagonal matrix
 #' block_matrix(nsm, steps=3)
 
-block_matrix <- function( x, steps = NULL, size = NULL ) {
+block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
 
-  y <- minus_block_matrix(x = x, steps = steps, size = size)
+  # create the off diagonal matrix (because programatically easier)
+  # to be substracted from x to form the output
+  y <- minus_block_matrix(x = x, steps = steps, size = size, replacement = replacement )
 
-  return(x - y)
+  # replacement is substracted on the diagonal with y
+  # here it is added for the whole of x
+  # cancelling out on the diagonal
+  # and adding off diagonal
+  return(x - y + replacement)
 
 }
