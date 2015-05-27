@@ -1,7 +1,7 @@
 #' Minus Block Matrix
 #'
 #' @name minus_block_matrix
-#' @param x a square matrix where the dimensions are both integer multiples of size or integer dividors of steps
+#' @param x a square matrix where the dimensions are integer multiples of size or integer dividors of steps
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the width or height of the matrix being dropped over the diagonal of matrix x
 #' @param replacement value to be inserted on the diagonal, by default this is zero (0).
@@ -16,6 +16,7 @@
 #'
 #' # select a block matrix with four steps
 #' minus_block_matrix(m, steps=4)
+
 
 minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
 
