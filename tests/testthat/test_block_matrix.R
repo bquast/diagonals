@@ -60,3 +60,11 @@ test_that("output content matches", {
   expect_equal(rowSums(bm8x4), c(1, 2, 11, 12, 21, 22, 31, 32) )
   expect_equal(rowSums(bm9x3), c(1, 2, 3, 13, 14, 15, 25, 26, 27) )
 })
+
+context("non-zero replacement")
+
+bm8x8minus1 <- block_matrix(m8x8, step = 2, replacement = -1)
+
+test_that("output content matches", {
+  expect_equal(rowSums(bm8x8minus1), c(48, 52, 56, 60, 192, 196, 200, 204) )
+})
