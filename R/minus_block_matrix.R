@@ -1,10 +1,11 @@
-#' Minus Block matrix
+#' Minus Block Matrix
 #'
 #' @name minus_block_matrix
-#' @param x a matrix where the dimensions are both multiples of size
+#' @param x a square matrix where the dimensions are both integer multiples of size or integer dividors of steps
 #' @param steps the required number of steps (block matrices) across the diagonal
-#' @param size the largest dimension of the matrix being dropped over the diagonal of matrix x
+#' @param size the width or height of the matrix being dropped over the diagonal of matrix x
 #' @param replacement value to be inserted on the diagonal, by default this is zero (0).
+#' @details Either steps or size is expected to be provided.
 #' @export
 #' @examples
 #' # create a square matrix
@@ -15,84 +16,49 @@
 #'
 #' # select a block matrix with four steps
 #' minus_block_matrix(m, steps=4)
-#'
-#' # create a non-square matrix
-#' nsm <- matrix(1:27, nrow=9, ncol=3 )
-#'
-#' # check that both dimensions are multiples of steps=3
-#' dim(nsm) %% 3 == c(0, 0)
-#'
-#' # select the diagonal matrix
-#' minus_block_matrix(nsm, steps=3)
 
 minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
 
 
-  if (!is.null(size)) {
-    #nothing
+  # check if square matrix
+  if ( dim(x)[1] != dim(x)[2]) {
+
+    # give warning
+    warning(paste("The matrix", x, "is not a square matrix, passing on arguments to the function minus_rectangle_matrix(), in future, please use this function directly."))
+
+    # pass on arguments
+    x <- minus_rectangle_matrix( x = x, steps = steps, size = size, replacement = replacement)
+
+  }
+
+  # determine the size of the step
+  if ( !is.null(size) ) {
+
+    # coerce to integer
+    size <- as.integer(size)
+
   } else if ( is.null(size) & !is.null(steps) ) {
 
-    # choose longest edge to set size of step
-    if (dim(x)[1] >= dim(x)[2]) {
-      size <- dim(x)[1] %/% steps
-    } else {
-      size <- dim(x)[2] %/% steps
-    }
+    # calculate size
+    size <- as.integer( dim(x)[1] %/% steps )
 
   } else if (is.null(steps) & is.null(size) ) {
 
     # issue warning
-    warning("Both steps and size parameters are NULL, trying to infer a steps size from the dimensions.")
+    warning(paste("Both steps and size parameters are NULL, setting step size to 1 (one). ") )
 
-    if (dim(x)[1] > dim(x)[2] & dim(x)[1] %% dim(x)[2] == 0) {
-      size <- dim(x)[1] %/% dim(x)[2]
-      message( paste("Setting step size to", size) )
-    } else if (dim(x)[2] > dim(x)[1] & dim(x)[2] %% dim(x)[1] == 0 ) {
-      size <- dim(x)[2] %/% dim(x)[1]
-      message( paste("Setting step size to", size) )
-    } else {
-      # set size to 1 integer
-      size <- 1L
-      warning( paste("No good step size good be infered from the dimensions, setting step size to", size) )
-    }
+    # set to unit
+    size <- 1L
 
   }
 
-  # check if square matrix
-  if ( dim(x)[1] == dim(x)[2]) {
+  # check that dimensions of this square matrix are a multiple of size
+  if(dim(x)[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right (South-East) of the output matrix.")
 
-    # check that dimensions of this square matrix are a multiple of size
-    if(dim(x)[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right of the output matrix.")
-
-    # remove square blocks
-    for (j in 1:(dim(x)[1] %/% size) ) {
-      p <- seq( ((j-1)*size + 1), j*size )
-      x[p, p] <- replacement
-    }
-
-  # check if size multiplied with columns equals rows
-  } else if ( dim(x)[1] == (dim(x)[2]*size) ) {
-
-    # remove square blocks
-    for (j in 1:(dim(x)[1] %/% size) ) {
-      p <- seq( ((j-1)*size + 1), j*size )
-      q <- seq( ((j-1)*dim(x)[2]/(dim(x)[1]/size)+1), j*dim(x)[2]/(dim(x)[1]/size ) )
-      x[p, q] <- replacement
-    }
-
-  # check if size multiplied with columns equals rows
-  } else if ( (dim(x)[1]*size) == dim(x)[2] ) {
-
-    # remove square blocks
-    for (j in 1:(dim(x)[2] %/% size) ) {
-      q <- seq( ((j-1)*size + 1), j*size )
-      p <- seq( ((j-1)*dim(x)[1]/(dim(x)[2]/size)+1), j*dim(x)[1]/(dim(x)[2]/size ) )
-      x[p, q] <- replacement
-    }
-
-  # if nothing works, return error
-  } else {
-    stop("dimensions are not equal (matrix is not square), or integer multiples of size")
+  # remove square blocks
+  for (j in 1:(dim(x)[1] %/% size) ) {
+    p <- seq( ((j-1)*size + 1), j*size )
+    x[p, p] <- replacement
   }
 
   # return output

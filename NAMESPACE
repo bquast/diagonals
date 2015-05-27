@@ -2,3 +2,4 @@
 
 export(block_matrix)
 export(minus_block_matrix)
+export(minus_rectangle_matrix)
