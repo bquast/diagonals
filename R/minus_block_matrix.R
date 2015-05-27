@@ -4,6 +4,7 @@
 #' @param x a matrix where the dimensions are both multiples of size
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the largest dimension of the matrix being dropped over the diagonal of matrix x
+#' @param replacement value to be inserted on the diagonal, by default this is zero (0).
 #' @export
 #' @examples
 #' # create a square matrix
@@ -24,7 +25,7 @@
 #' # select the diagonal matrix
 #' minus_block_matrix(nsm, steps=3)
 
-minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
+minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
 
 
   if (!is.null(size)) {
@@ -66,7 +67,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
     # remove square blocks
     for (j in 1:(dim(x)[1] %/% size) ) {
       p <- seq( ((j-1)*size + 1), j*size )
-      x[p, p] <- 0
+      x[p, p] <- replacement
     }
 
   # check if size multiplied with columns equals rows
@@ -76,7 +77,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
     for (j in 1:(dim(x)[1] %/% size) ) {
       p <- seq( ((j-1)*size + 1), j*size )
       q <- seq( ((j-1)*dim(x)[2]/(dim(x)[1]/size)+1), j*dim(x)[2]/(dim(x)[1]/size ) )
-      x[p, q] <- 0
+      x[p, q] <- replacement
     }
 
   # check if size multiplied with columns equals rows
@@ -86,7 +87,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL ) {
     for (j in 1:(dim(x)[2] %/% size) ) {
       q <- seq( ((j-1)*size + 1), j*size )
       p <- seq( ((j-1)*dim(x)[1]/(dim(x)[2]/size)+1), j*dim(x)[1]/(dim(x)[2]/size ) )
-      x[p, q] <- 0
+      x[p, q] <- replacement
     }
 
   # if nothing works, return error

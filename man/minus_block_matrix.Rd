@@ -4,7 +4,7 @@
 \alias{minus_block_matrix}
 \title{Minus Block matrix}
 \usage{
-minus_block_matrix(x, steps = NULL, size = NULL)
+minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0)
 }
 \arguments{
 \item{x}{a matrix where the dimensions are both multiples of size}
@@ -12,6 +12,8 @@ minus_block_matrix(x, steps = NULL, size = NULL)
 \item{steps}{the required number of steps (block matrices) across the diagonal}
 
 \item{size}{the largest dimension of the matrix being dropped over the diagonal of matrix x}
+
+\item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
 }
 \description{
 Minus Block matrix
