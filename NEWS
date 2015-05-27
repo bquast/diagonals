@@ -1,0 +1,14 @@
+diagonals 0.2.0
+===================
+
+* add support for replacement other than 0 (zero)
+
+
+diagonals 0.1.0
+===================
+
+* block_matrix(): for extracting block diagonals
+
+* minus_block_matrix(): for dropping block diagonals
+
+* add support for non-square matrices
