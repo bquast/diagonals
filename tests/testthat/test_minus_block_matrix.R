@@ -26,8 +26,8 @@ m4x8 <- matrix(1:(4*8), nrow = 4)
 m3x9 <- matrix(1:(3*9), nrow = 3)
 
 # apply minus_block_matrix()
-mbm4x8 <- minus_block_matrix(m4x8, size = 2)
-mbm3x9 <- minus_block_matrix(m3x9, steps = 3)
+mbm4x8 <- minus_rectangle_matrix(m4x8, size = 2)
+mbm3x9 <- minus_rectangle_matrix(m3x9, steps = 3)
 
 
 test_that("output size matches", {
@@ -47,8 +47,8 @@ m8x4 <- matrix(1:(8*4), nrow = 8)
 m9x3 <- matrix(1:(9*3), nrow = 9)
 
 # apply minus_block_matrix()
-mbm8x4 <- minus_block_matrix(m8x4, size = 2)
-mbm9x3 <- minus_block_matrix(m9x3, steps = 3)
+mbm8x4 <- minus_rectangle_matrix(m8x4, size = 2)
+mbm9x3 <- minus_rectangle_matrix(m9x3, steps = 3)
 
 
 test_that("output size matches", {
@@ -72,7 +72,7 @@ test_that("warning for no steps or size (square)", {
 })
 
 test_that("warning for no steps or size (non-square)", {
-  expect_warning(minus_block_matrix(matrix(1:16, nrow=8)))
+  expect_warning(minus_rectangle_matrix(matrix(1:32, nrow=8)))
 })
 
 test_that("error for non-square non-multiple of size", {
@@ -83,6 +83,6 @@ test_that("error for non-square non-multiple of size", {
 context("output for no steps or size for non-square matrices")
 
 test_that("", {
-  expect_equal(minus_block_matrix(m8x4), mbm8x4)
-  expect_equal(minus_block_matrix( t(m8x4) ), t(mbm8x4) )
+  expect_equal(minus_rectangle_matrix(m8x4), mbm8x4)
+  expect_equal(minus_rectangle_matrix( t(m8x4) ), t(mbm8x4) )
 })
