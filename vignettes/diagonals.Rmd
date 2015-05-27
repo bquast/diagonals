@@ -49,3 +49,15 @@ Or this.
 ```{r}
 block_matrix( t(nsm), steps=3 )
 ```
+
+Lastly, we can also choose a replacement parameter other than zero.
+
+```{r}
+block_matrix(m, steps=4, replacement=-1)
+```
+
+or 
+
+```{r}
+minus_block_matrix(nsm, steps=3, replacement=666)
+```
