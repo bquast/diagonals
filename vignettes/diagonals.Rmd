@@ -37,17 +37,27 @@ The number of `steps` can vary, but dimensions should be multiples of `steps`. A
 block_matrix(m, size=2)
 ```
 
-Even non-square matrices are supported, as long as each dimension is a multiple of size (i.e. `dim(matrix) %% size == c(0, 0)` ).
+Even non-square matrices are supported, as long as each dimension is a multiple of size.
 
-```{r non-squre}
+```{r create-non-square}
+# create the matrix
 nsm <- matrix(1:27, nrow=9, ncol=3 )
-block_matrix(nsm, steps=3)
+
+# test if the dimensions are multiples of size
+# i.e. there are no remainders after the modulo division of dimensions by steps
+dim(nsm) %% 3 # we will use 3 (three) steps
+```
+
+Now extract the rectangular diagonal.
+
+```{r apply-non-square}
+rectangle_matrix(nsm, steps=3)
 ```
 
 Or this.
 
 ```{r}
-block_matrix( t(nsm), steps=3 )
+rectangle_matrix( t(nsm), steps=3 )
 ```
 
 Lastly, we can also choose a replacement parameter other than zero.
@@ -59,5 +69,5 @@ block_matrix(m, steps=4, replacement=-1)
 or 
 
 ```{r}
-minus_block_matrix(nsm, steps=3, replacement=666)
+minus_rectangle_matrix(nsm, steps=3, replacement=666)
 ```
