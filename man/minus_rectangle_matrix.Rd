@@ -26,6 +26,6 @@ nsm <- matrix(1:27, nrow=9, ncol=3 )
 dim(nsm) \%\% 3 == c(0, 0)
 
 # select the diagonal matrix
-minus_block_matrix(nsm, steps=3)
+minus_rectangle_matrix(nsm, steps=3)
 }
 

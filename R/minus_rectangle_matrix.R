@@ -14,7 +14,7 @@
 #' dim(nsm) %% 3 == c(0, 0)
 #'
 #' # select the diagonal matrix
-#' minus_block_matrix(nsm, steps=3)
+#' minus_rectangle_matrix(nsm, steps=3)
 
 
 minus_rectangle_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
