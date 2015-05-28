@@ -1,10 +1,10 @@
 ---
-title: "Social Network"
+title: "Social Network Analysis"
 author: "Bastiaan Quast"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Social Network Analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
