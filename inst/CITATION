@@ -1,0 +1,15 @@
+bibentry(bibtype      = "Manual",
+         title        = "diagonals: block matrix and other fat diagonals",
+         author       = person("Bastiaan", "Quast"),
+         organization = "The Graduate Institute",
+		     address      = "Maison de la Paix, Geneva, Switzerland",
+         year         = "2015",
+         url          = "http://qua.st/diagonals",
+         textVersion  = "Quast, B.A. (2015). diagonals: block matrix and other fat diagonals",
+
+
+		mheader       = "To cite decompr in publications please use:",
+
+		mfooter       = "We have invested a lot of time and effort in creating decompr, please cite it when using it for data analysis. See also 'citation()' for citing R."
+
+)
