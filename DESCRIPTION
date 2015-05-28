@@ -9,6 +9,6 @@ LazyData: true
 URL: http://qua.st/diagonals, https://github.com/bquast/diagonals
 BugReports: https://github.com/bquast/diagonals/issues
 Suggests: testthat,
-          rmarkdown
+          rmarkdown,
           knitr
 VignetteBuilder: knitr
