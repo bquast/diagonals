@@ -1,4 +1,5 @@
-# diagonals
+diagonals
+-------------
 [![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
 [![Coverage Status](https://img.shields.io/coveralls/bquast/diagonals.svg)](https://coveralls.io/r/bquast/diagonals?branch=master)
 
@@ -40,4 +41,17 @@ In addition to the help files we provide long form examples in the **vignettes**
     # or
     browseVignettes("diagonals")
 
-    
+There is also a blog post with information on my [personal website](http://qua.st/).
+
+ - http://qua.st/diagonals/
+ 
+
+Development
+-------------
+Development takes place on the [GitHub](http://github.com/) page.
+
+ - http://github.com/bquast/diagonals
+
+Bugs can be filed on the issues page on GitHub.
+
+ - https://github.com/bquast/diagonals/issues
