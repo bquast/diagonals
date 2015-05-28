@@ -40,6 +40,10 @@ In addition to the help files we provide long form examples in the **vignettes**
     
     # or
     browseVignettes("diagonals")
+    
+An overview of the changes is available in the NEWS file.
+
+    news(package="diagonals")
 
 There is also a blog post with information on my [personal website](http://qua.st/).
 
