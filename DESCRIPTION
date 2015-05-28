@@ -6,6 +6,8 @@ Description: Several tools for handling block matrices and similar constructs. B
 Depends: R (>= 3.1.3)
 License: GPL-3
 LazyData: true
+URL: http://qua.st/diagonals, https://github.com/bquast/diagonals
+BugReports: https://github.com/bquast/diagonals/issues
 Suggests: testthat,
     knitr
 VignetteBuilder: knitr
