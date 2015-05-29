@@ -8,7 +8,7 @@
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
 
-There were 3 NOTES:
+There were 2 NOTES:
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
@@ -17,10 +17,8 @@ New submission
 * checking package dependencies ... NOTE
   No repository set, so cyclic dependency check skipped
 
-Found the following (possibly) invalid URLs:
- URL: http://cran.r-project.org/?package=diagonals
-   From: README.md
-   Status: 404
-   Message: Not Found
+In addition to this, I have used the following URL
 
-I am anticipating that this URL will become valid, if the package is excepted.
+ URL: http://cran.r-project.org/?package=diagonals
+
+I am anticipating that this URL will become valid, if the package is accepted.
