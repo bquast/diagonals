@@ -1,5 +1,6 @@
 diagonals
 -------------
+[!CRAN Version](http://www.r-pkg.org/badges/version/diagonals)(http://cran.r-project.org/web/packages/diagonals/index.html)
 [![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
 [![Coverage Status](https://img.shields.io/coveralls/bquast/diagonals.svg)](https://coveralls.io/r/bquast/diagonals?branch=master)
 
