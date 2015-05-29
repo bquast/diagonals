@@ -1,17 +1,16 @@
 diagonals
 -------------
-[![CRAN Version](http://www.r-pkg.org/badges/version/diagonals)](http://cran.r-project.org/web/packages/diagonals/index.html)
+[![CRAN Version](http://www.r-pkg.org/badges/version/diagonals)](http://cran.r-project.org/?package=diagonals)
 [![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
 [![Coverage Status](https://img.shields.io/coveralls/bquast/diagonals.svg)](https://coveralls.io/r/bquast/diagonals?branch=master)
 
 Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.
 
-Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](http://cran.r-project.org/web/packages/decompr/index.html) and [gvc](http://cran.r-project.org/web/packages/gvc/index.html) package have each country-industry combination occur on each edge of the matrix.
+Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](http://cran.r-project.org/?package=decompr) and [gvc](http://cran.r-project.org/?package=gvc) package have each country-industry combination occur on each edge of the matrix.
 
 The stable version of the `diagonals` package can be install from [CRAN](http://cran.r-project.org/) using:
 
     install.packages("diagonals")
-
 
 The development version, to be used **at your peril**, can be installed using:
 
