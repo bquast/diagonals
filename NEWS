@@ -3,6 +3,8 @@ diagonals 0.2.0
 
 * add support for replacement other than 0 (zero)
 
+* break out rectangles to separate functions: rectangle_matrix() and minus_rectangle_matrix()
+
 
 diagonals 0.1.0
 ===================
