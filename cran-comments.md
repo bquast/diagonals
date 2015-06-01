@@ -7,18 +7,3 @@
 
 ## R CMD check results
 There were no ERRORs or WARNINGs. 
-
-There were 2 NOTES:
-
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
-New submission
-
-* checking package dependencies ... NOTE
-  No repository set, so cyclic dependency check skipped
-
-In addition to this, I have used the following URL
-
- URL: http://cran.r-project.org/?package=diagonals
-
-I am anticipating that this URL will become valid, if the package is accepted.
