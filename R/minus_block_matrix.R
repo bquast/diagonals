@@ -46,7 +46,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
     size <- as.integer(size)
 
     # create steps
-    steps <- dx[1] %% size
+    steps <- dx[1] %/% size
 
   } else if ( is.null(size) & !is.null(steps) ) {
 
@@ -62,7 +62,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
 
       size  <- sqrt(dx[1])
       steps <- sqrt(dx[1])
-      message("The dimensions of x have a square root, using this as size (and steps). If future, please declare steps or size")
+      warning("The dimensions of x have a square root, using this as size (and steps). If future, please declare steps or size")
 
     } else {
 
@@ -80,7 +80,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
   if (as.integer(size^2*steps) %% lr != 0 && lr != 1L)
     stop("replacment fat diagonals has wrong length")
 
-  spl <- split_vector(1:dim(x)[1], steps = steps)
+  spl <- split_vector(1:dx[1], steps = steps)
 
   # create vectors
   a <- vector()
