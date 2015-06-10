@@ -15,6 +15,8 @@ minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0,
 \item{size}{the width or height of the matrix being dropped over the diagonal of matrix x}
 
 \item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
+
+\item{byrow}{should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).}
 }
 \description{
 Minus Block Matrix

@@ -5,6 +5,7 @@
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the width or height of the matrix being dropped over the diagonal of matrix x
 #' @param replacement value to be inserted on the diagonal, by default this is zero (0).
+#' @param byrow should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).
 #' @details Either steps or size is expected to be provided.
 #' @export
 #' @examples
