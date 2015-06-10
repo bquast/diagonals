@@ -13,46 +13,60 @@ Installation
 -------------
 The stable version of the `diagonals` package can be install from [CRAN](http://cran.r-project.org/package=diagonals) using:
 
-    install.packages("diagonals")
+```r
+install.packages("diagonals")
+```
 
 The development version, to be used **at your peril**, can be installed using:
 
-    if (!require('devtools')) install.packages('devtools')
-    devtools::install_github("bquast/decompr")
+```r
+if (!require('devtools')) install.packages('devtools')
+devtools::install_github("bquast/decompr")
+```
 
 
 Usage
 -------
 Following installation, the package can be loaded using:
 
-    library(diagonals)
+```r
+library(diagonals)
+```
 
 For general information on using the package, please refer to the help files    .
 
-    help("diagonals")
-    help(package = "diagonals")
+```r
+help("diagonals")
+help(package = "diagonals")
+```
     
 For examples of usage, see the function specific help pages
 
-    help("block_matrix")
-    help("minus_block_matrix")
-    help("rectangle_matrix")
-    help("minus_rectangle_matrix")
+```r
+help("block_matrix")
+help("minus_block_matrix")
+help("rectangle_matrix")
+help("minus_rectangle_matrix")
+```
 
 In addition to the help files we provide long form examples in the **vignettes** .
 
-    vignette("diagonals")
-    vignette("network")
-    
-    # or
-    browseVignettes("diagonals")
+```r
+vignette("diagonals")
+vignette("network")
+
+# or
+browseVignettes("diagonals")
+```
 
 
 Additional Information
 -----------------------
 An overview of the changes is available in the NEWS file.
 
-    news(package="diagonals")
+```r
+news(package="diagonals")
+```
 
 There is also a blog post with information on my [personal website](http://qua.st/).
 
