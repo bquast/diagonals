@@ -18,11 +18,18 @@
 #' minus_block_matrix(m, steps=4)
 
 
-minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) {
+minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, byrow = TRUE ) {
 
+  # save dimensions
+  dx <- dim(x)
+  # save replacment length
+  lr <- length(replacement)
+
+  if (length(dx) != 2L)
+    stop("only matrix (two dimensions) diagonals can be replaced")
 
   # check if square matrix
-  if ( dim(x)[1] != dim(x)[2]) {
+  if ( dx[1] != dx[2]) {
 
     # give warning
     warning(paste("The matrix", x, "is not a square matrix, passing on arguments to the function minus_rectangle_matrix(), in future, please use this function directly."))
@@ -38,29 +45,61 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0 ) 
     # coerce to integer
     size <- as.integer(size)
 
+    # create steps
+    steps <- dx[1] %% size
+
   } else if ( is.null(size) & !is.null(steps) ) {
 
     # calculate size
-    size <- as.integer( dim(x)[1] %/% steps )
+    size <- as.integer( dx[1] %/% steps )
 
   } else if (is.null(steps) & is.null(size) ) {
 
     # issue warning
-    warning(paste("Both steps and size parameters are NULL, setting step size to 1 (one). ") )
+    warning("Both steps and size parameters are NULL, trying to guess size")
+
+    if (dx[1] %% sqrt(dx[1]) == 0 ) {
+
+      size  <- sqrt(dx[1])
+      steps <- sqrt(dx[1])
+      message("The dimensions of x have a square root, using this as size (and steps). If future, please declare steps or size")
+
+    } else {
+
 
     # set to unit
     size <- 1L
+    }
 
   }
 
   # check that dimensions of this square matrix are a multiple of size
-  if(dim(x)[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right (South-East) of the output matrix.")
+  if(dx[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right (South-East) of the output matrix.")
 
-  # remove square blocks
-  for (j in 1:(dim(x)[1] %/% size) ) {
-    p <- seq( ((j-1)*size + 1), j*size )
-    x[p, p] <- replacement
+
+  if (as.integer(size^2*steps) %% lr != 0 && lr != 1L)
+    stop("replacment fat diagonals has wrong length")
+
+  spl <- split_vector(1:dim(x)[1], steps = steps)
+
+  # create vectors
+  a <- vector()
+  b <- vector()
+
+  # insert combinations
+  for (i in 1:steps) {
+    a <- c(a, rep(spl[[i]], times=size) )
+    b <- c(b, rep(spl[[i]], each=size) )
   }
+
+  # transpose matrix if byrow is false (transpose back after replacement)
+  if(!byrow) x <- t(x)
+
+  # replace
+  x[cbind(a,b)] <- replacement
+
+  # transpose back
+  if(!byrow) x <- t(x)
 
   # return output
   return(x)

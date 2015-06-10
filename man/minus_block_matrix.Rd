@@ -4,7 +4,8 @@
 \alias{minus_block_matrix}
 \title{Minus Block Matrix}
 \usage{
-minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0)
+minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0,
+  byrow = TRUE)
 }
 \arguments{
 \item{x}{a square matrix where the dimensions are integer multiples of size or integer dividors of steps}
