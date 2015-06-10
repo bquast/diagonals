@@ -56,15 +56,15 @@ An overview of the changes is available in the NEWS file.
 
 There is also a blog post with information on my [personal website](http://qua.st/).
 
- - http://qua.st/diagonals/
+http://qua.st/diagonals/
  
 
 Development
 -------------
 Development takes place on the [GitHub](http://github.com/) page.
 
- - http://github.com/bquast/diagonals
+http://github.com/bquast/diagonals
 
 Bugs can be filed on the issues page on GitHub.
 
- - https://github.com/bquast/diagonals/issues
+https://github.com/bquast/diagonals/issues
