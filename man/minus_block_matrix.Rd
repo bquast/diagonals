@@ -5,7 +5,7 @@
 \title{Minus Block Matrix}
 \usage{
 minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0,
-  byrow = TRUE)
+  off_diagonal = FALSE, byrow = TRUE)
 }
 \arguments{
 \item{x}{a square matrix where the dimensions are integer multiples of size or integer dividors of steps}
@@ -15,6 +15,8 @@ minus_block_matrix(x, steps = NULL, size = NULL, replacement = 0,
 \item{size}{the width or height of the matrix being dropped over the diagonal of matrix x}
 
 \item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
+
+\item{off_diagonal}{should the operation be apply to the elements off the fat diagonal.}
 
 \item{byrow}{should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).}
 }
