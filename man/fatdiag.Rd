@@ -2,10 +2,13 @@
 % Please edit documentation in R/fatdiag.R
 \name{fatdiag}
 \alias{fatdiag}
+\alias{fatdiag<-}
 \title{Fat Matrix Diagonals}
 \usage{
-fatdiag(x, steps = NULL, size = NULL, replacement = 0,
-  off_diagonal = FALSE, byrow = TRUE)
+fatdiag(x = 1, nrow, ncol, steps, size)
+
+fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
+  <- value
 }
 \arguments{
 \item{x}{a square matrix where the dimensions are integer multiples of size or integer dividors of steps}
@@ -14,11 +17,11 @@ fatdiag(x, steps = NULL, size = NULL, replacement = 0,
 
 \item{size}{the width or height of the matrix being dropped over the diagonal of matrix x}
 
-\item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
-
-\item{off_diagonal}{should the operation be apply to the elements off the fat diagonal.}
+\item{on_diagonal}{should the operation be apply to the elements on the fat diagonal.}
 
 \item{byrow}{should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).}
+
+\item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
 }
 \description{
 Fat Matrix Diagonals
