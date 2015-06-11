@@ -26,19 +26,19 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
   # save replacment length
   lr <- length(replacement)
 
+  # square if dimensions are right
   if (length(dx) != 2L)
-    stop("only matrix (two dimensions) diagonals can be replaced")
+    stop("not a matrix")
 
   # check if square matrix
-  if ( dx[1] != dx[2]) {
+  if ( dx[1] != dx[2])
+    stop("not a square matrix")
 
-    # give warning
-    warning(paste("The matrix", x, "is not a square matrix, passing on arguments to the function minus_rectangle_matrix(), in future, please use this function directly."))
+  # check that dimensions of this square matrix are a multiple of size
+  if(dx[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right (South-East) of the output matrix.")
 
-    # pass on arguments
-    x <- minus_rectangle_matrix( x = x, steps = steps, size = size, replacement = replacement)
-
-  }
+  if (as.integer(size^2*steps) %% lr != 0 && lr != 1L)
+    stop("replacment fat diagonals has wrong length")
 
   # determine the size of the step
   if ( !is.null(size) ) {
@@ -52,7 +52,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
   } else if ( is.null(size) & !is.null(steps) ) {
 
     # calculate size
-    size <- as.integer( dx[1] %/% steps )
+    size <- floor( dx[1] %/% steps )
 
   } else if (is.null(steps) & is.null(size) ) {
 
@@ -63,10 +63,9 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
 
       size  <- sqrt(dx[1])
       steps <- sqrt(dx[1])
-      warning("The dimensions of x have a square root, using this as size (and steps). If future, please declare steps or size")
+      warning("using the square root as steps and size")
 
     } else {
-
 
     # set to unit
     size <- 1L
@@ -74,13 +73,7 @@ minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, b
 
   }
 
-  # check that dimensions of this square matrix are a multiple of size
-  if(dx[1] %% size != 0) warning("Matrix dimensions are not a multiple of size, problems will occur in the bottom right (South-East) of the output matrix.")
-
-
-  if (as.integer(size^2*steps) %% lr != 0 && lr != 1L)
-    stop("replacment fat diagonals has wrong length")
-
+  # split dimension according to steps
   spl <- split_vector(1:dx[1], steps = steps)
 
   # create vectors
