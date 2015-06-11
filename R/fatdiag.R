@@ -21,35 +21,8 @@
 
 fatdiag <- function( x = 1, nrow, ncol, steps, size) {
 
-#       if (is.matrix(x)) {
-#       if (nargs() > 1L)
-#         stop("'nrow' or 'ncol' cannot be specified when 'x' is a matrix")
-#       if ((m <- min(dim(x))) == 0L)
-#         return(vector(typeof(x), 0L))
-#       y <- c(x)[1 + 0L:(m - 1L) * (dim(x)[1L] + 1)]
-#       nms <- dimnames(x)
-#       if (is.list(nms) && !any(sapply(nms, is.null)) && identical((nm <- nms[[1L]][seq_len(m)]),
-#                                                                   nms[[2L]][seq_len(m)]))
-#         names(y) <- nm
-#       return(y)
-#     }
-#     if (is.array(x) && length(dim(x)) != 1L)
-#       stop("'x' is an array, but not one-dimensional.")
-#     if (missing(x))
-#       n <- nrow
-#     else if (length(x) == 1L && nargs() == 1L) {
-#       n <- as.integer(x)
-#       x <- 1
-#     }
-#     else n <- length(x)
-#     if (!missing(nrow))
-#       n <- nrow
-#     if (missing(ncol))
-#       ncol <- n
-#     .Internal(diag(x, n, ncol))
     if (length(x) == 1) {
-      if ( !is.null(steps) ) {
-        # check if fits
+        # create a fat diagonal matrix
         if ( !x %% steps == 0 )
           stop("steps is not an integer divisor of x")
         size <- x %/% steps
@@ -57,9 +30,9 @@ fatdiag <- function( x = 1, nrow, ncol, steps, size) {
         m <- matrix(0, nrow=dims, ncol = dims)
         fatdiag(m, steps = steps, size = size) <- 1
         return(m)
-      }
-      }
-  else if ( length(dim(x)) == 2) {
+
+    } else if ( length(dim(x)) == 2) {
+
         # extract the fat diagonal
 
         dims <- dim(x)
@@ -74,7 +47,7 @@ fatdiag <- function( x = 1, nrow, ncol, steps, size) {
           b <- c(b, rep(spl[[i]], each=size) )
         }
         return( x[cbind(a,b)] )
-      }
+    }
 }
 
 
