@@ -1,6 +1,6 @@
-#' Minus Block Matrix
+#' Fat Matrix Diagonals
 #'
-#' @name minus_block_matrix
+#' @name fatdiag
 #' @param x a square matrix where the dimensions are integer multiples of size or integer dividors of steps
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the width or height of the matrix being dropped over the diagonal of matrix x
@@ -11,16 +11,16 @@
 #' @export
 #' @examples
 #' # create a square matrix
-#' m <- matrix(1:64, nrow=8)
+#' m <- matrix(111, nrow=8, ncol=8)
 #'
 #' # select a block matrix with two steps
-#' minus_block_matrix(m, steps=2)
+#' fatdiag(m, steps=2)
 #'
 #' # select a block matrix with four steps
-#' minus_block_matrix(m, steps=4)
+#' fatdiag(m, steps=4)
 
 
-minus_block_matrix <- function( x, steps = NULL, size = NULL, replacement = 0, off_diagonal=FALSE, byrow = TRUE ) {
+fatdiag <- function( x, steps = NULL, size = NULL, replacement = 0, off_diagonal=FALSE, byrow = TRUE ) {
 
   # save dimensions
   dx <- dim(x)

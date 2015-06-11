@@ -2,7 +2,7 @@
 
 export("diag<-")
 export(block_matrix)
-export(minus_block_matrix)
+export(fatdiag)
 export(minus_rectangle_matrix)
 export(rectangle_matrix)
 export(split_vector)
