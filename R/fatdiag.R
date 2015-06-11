@@ -22,14 +22,19 @@
 fatdiag <- function( x = 1, nrow, ncol, steps, size) {
 
     if (length(x) == 1) {
-        # create a fat diagonal matrix
-        if ( !x %% steps == 0 )
-          stop("steps is not an integer divisor of x")
-        size <- x %/% steps
-        dims <- steps*size
-        m <- matrix(0, nrow=dims, ncol = dims)
-        fatdiag(m, steps = steps, size = size) <- 1
-        return(m)
+
+      if (is.null(steps)) {
+        steps <- x %/% size
+      }
+
+      # create a fat diagonal matrix
+      if ( !x %% steps == 0 )
+        stop("steps is not an integer divisor of x")
+      size <- x %/% steps
+      dims <- steps*size
+      m <- matrix(0, nrow=dims, ncol = dims)
+      fatdiag(m, steps = steps, size = size) <- 1
+      return(m)
 
     } else if ( length(dim(x)) == 2) {
 
