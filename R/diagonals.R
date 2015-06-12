@@ -6,12 +6,8 @@
 NULL
 .onAttach <- function(...) {
   packageStartupMessage('
-D
- I
-  A
-   G
-    O
-     N
-      A
-       L
+D I
+A G
+    O N
+    A L
         S')}
