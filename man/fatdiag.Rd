@@ -5,7 +5,7 @@
 \alias{fatdiag<-}
 \title{Fat Matrix Diagonals}
 \usage{
-fatdiag(x = 1, nrow = NULL, ncol = NULL, steps = NULL, size = NULL)
+fatdiag(x = 1, steps = NULL, size = NULL, nrow = NULL, ncol = NULL)
 
 fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
   <- value
@@ -17,26 +17,20 @@ fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
 
 \item{size}{the width or height of the matrix being dropped over the diagonal of matrix x}
 
+\item{nrow}{the number of rows}
+
+\item{ncol}{the number of columns}
+
+\item{value}{replacement value}
+
 \item{on_diagonal}{should the operation be apply to the elements on the fat diagonal.}
 
 \item{byrow}{should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).}
-
-\item{replacement}{value to be inserted on the diagonal, by default this is zero (0).}
 }
 \description{
 Fat Matrix Diagonals
 }
 \details{
 Either steps or size is expected to be provided.
-}
-\examples{
-# create a square matrix
-m <- matrix(111, nrow=8, ncol=8)
-
-# select a block matrix with two steps
-fatdiag(m, steps=2)
-
-# select a block matrix with four steps
-fatdiag(m, steps=4)
 }
 

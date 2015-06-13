@@ -2,24 +2,17 @@
 #'
 #' @name fatdiag
 #' @param x a square matrix where the dimensions are integer multiples of size or integer dividors of steps
+#' @param value replacement value
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the width or height of the matrix being dropped over the diagonal of matrix x
-#' @param replacement value to be inserted on the diagonal, by default this is zero (0).
+#' @param nrow the number of rows
+#' @param ncol the number of columns
 #' @param on_diagonal should the operation be apply to the elements on the fat diagonal.
 #' @param byrow should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).
 #' @details Either steps or size is expected to be provided.
 #' @export
-#' @examples
-#' # create a square matrix
-#' m <- matrix(111, nrow=8, ncol=8)
-#'
-#' # select a block matrix with two steps
-#' fatdiag(m, steps=2)
-#'
-#' # select a block matrix with four steps
-#' fatdiag(m, steps=4)
 
-fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps=NULL, size=NULL) {
+fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 
   if (length(size) == 1)
     size <- c(size, size)
@@ -135,8 +128,8 @@ fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps=NULL, size=NULL) {
 
   if (!on_diagonal) {
     for (i in 1:steps) {
-      a <- c(a, rep(spl[[i]], times=dx[1]-size) )
-      b <- c(b, rep(setdiff(1:dx[1], spl[[i]]), each=size) )
+      a <- c(a, rep(spl1[[i]], times=dx[1]-size) )
+      b <- c(b, rep(setdiff(1:dx[1], spl2[[i]]), each=size) )
       }
     } else {
     # insert combinations
