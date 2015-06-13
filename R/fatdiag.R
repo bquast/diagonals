@@ -19,37 +19,51 @@
 #' # select a block matrix with four steps
 #' fatdiag(m, steps=4)
 
-fatdiag <- function( x = 1, nrow, ncol, steps, size) {
+fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps, size) {
 
     if (length(x) == 1) {
 
+      if ( !is.null(nrow) && !is.null(ncol) ) {
+        dx <- as.vector( c(nrow,ncol) )
+      } else if ( !is.null(nrow) && is.null(ncol)) {
+        if ("common denominator x and nrow")
+          stop("nrow and x do not havea common denominator")
+        dx <- as.vector(c(nrow, x))
+      } else if ( is.null(nrow) && !is.null(ncol)) {
+        if ("common denominator x and ncol")
+          stop("ncol and x do not havea common denominator")
+        dx <- as.vector(c(x, ncol))
+      } else {
+        dx <- as.vector( c(x, x) )
+      }
+
       if (is.null(steps)) {
-        steps <- x %/% size
+        steps <- max(dx) %/% size
       }
 
       # create a fat diagonal matrix
-      if ( !x %% steps == 0 )
-        stop("steps is not an integer divisor of x")
-      size <- x %/% steps
-      dims <- steps*size
-      m <- matrix(0, nrow=dims, ncol = dims)
-      fatdiag(m, steps = steps, size = size) <- 1
+      # if ( dx[1] %% steps != 0 ) ## THIS NEEDS TO HOLD FOR BOTH
+      #  stop("steps is not an integer divisor of x on all dimensions")
+      size <- dx %/% steps
+      m <- matrix(0, nrow=dx[1], ncol = dx[2])
+      fatdiag(m, steps = steps, size = size[1]) <- 1
       return(m)
 
     } else if ( length(dim(x)) == 2) {
 
         # extract the fat diagonal
 
-        dims <- dim(x)
-        size <- dims[1] %/% steps
+        dx <- dim(x)
+        size <- dx %/% steps
         # split dimension according to steps
-        spl <- split_vector(1:dims[1], steps = steps)
+        spl1 <- split_vector(1:dx[1], steps = steps)
+        spl2 <- split_vector(1:dx[2], steps = steps)
         # create vectors
         a <- vector()
         b <- vector()
         for (i in 1:steps) {
-          a <- c(a, rep(spl[[i]], times=size) )
-          b <- c(b, rep(spl[[i]], each=size) )
+          a <- c(a, rep(spl1[[i]], times = size[2]) )
+          b <- c(b, rep(spl2[[i]], each  = size[1]) )
         }
         return( x[cbind(a,b)] )
     }
@@ -63,63 +77,55 @@ fatdiag <- function( x = 1, nrow, ncol, steps, size) {
   # save dimensions
   dx <- dim(x)
   # save value length
-  lr <- length(value)
+  lv <- length(value)
 
   # square if dimensions are right
   if (length(dx) != 2L)
     stop("not a matrix")
 
-  # check if square matrix
-  if ( dx[1] != dx[2])
-    stop("not a square matrix")
-
   # determine the size of the step
-  if ( !is.null(size) ) {
+  if ( is.null(steps) && !is.null(size) ) {
 
     # coerce to integer
-    size <- as.integer(size)
+    size <- floor(size)
 
     # create steps
-    steps <- dx[1] %/% size
+    steps <- max(dx) %/% max(size)
 
-  } else if ( is.null(size) & !is.null(steps) ) {
+  } else if ( !is.null(steps) & is.null(size) ) {
 
     # calculate size
-    size <- floor( dx[1] %/% steps )
+    size <- dx %/% steps
 
   } else if (is.null(steps) & is.null(size) ) {
 
     # issue warning
     warning("Both steps and size parameters are NULL, trying to guess size")
 
-    if (dx[1] %% sqrt(dx[1]) == 0 ) {
-
-      size  <- sqrt(dx[1])
+    if ( all(sqrt(dx) %% 1 == 0) ) {
+      size  <- sqrt(dx)
       steps <- sqrt(dx[1])
       warning("using the square root as steps and size")
-
     } else {
-
-    # set to unit
-    size <- 1L
-
-
-    # create steps
-    steps <- dx[1] %/% size
+      # set to unit
+      size <- 1L
+      # create steps
+      steps <- dx[1] %/% size
     }
 
   }
 
   # check that dimensions of this square matrix are a multiple of size
-  if(dx[1] %% size != 0)
+  if( !all(dx %% size == 0) )
     stop("Matrix dimensions are not a multiple of size")
 
-  if (as.integer(size^2*steps) %% lr != 0 && lr != 1L)
+  if (as.integer(size[1]^size[2]*steps) %% lv != 0 && lv != 1L)
     stop("value fat diagonals has wrong length")
 
 
   # split dimension according to steps
-  spl <- split_vector(1:dx[1], steps = steps)
+  spl1 <- split_vector(1:dx[1], steps = steps)
+  spl2 <- split_vector(1:dx[2], steps = steps)
 
   # create vectors
   a <- vector()
@@ -133,8 +139,8 @@ fatdiag <- function( x = 1, nrow, ncol, steps, size) {
     } else {
     # insert combinations
     for (i in 1:steps) {
-      a <- c(a, rep(spl[[i]], times=size) )
-      b <- c(b, rep(spl[[i]], each=size) )
+      a <- c(a, rep(spl1[[i]], times = size[2]) )
+      b <- c(b, rep(spl2[[i]], each  = size[1]) )
       }
     }
 
@@ -149,6 +155,6 @@ fatdiag <- function( x = 1, nrow, ncol, steps, size) {
   if(!byrow) x <- t(x)
 
   # return output
-  x
+  return(x)
 
 }
