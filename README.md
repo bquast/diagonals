@@ -21,7 +21,7 @@ The development version, to be used **at your peril**, can be installed using:
 
 ```r
 if (!require('devtools')) install.packages('devtools')
-devtools::install_github("bquast/decompr")
+devtools::install_github("bquast/diagonals")
 ```
 
 
