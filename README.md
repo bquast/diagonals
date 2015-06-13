@@ -40,20 +40,16 @@ help("diagonals")
 help(package = "diagonals")
 ```
     
-For examples of usage, see the function specific help pages
+For examples of usage, see the function specific help page.
 
 ```r
-help("block_matrix")
-help("minus_block_matrix")
-help("rectangle_matrix")
-help("minus_rectangle_matrix")
+help("fatdiag")
 ```
 
 In addition to the help files we provide long form examples in the **vignettes** .
 
 ```r
-vignette("diagonals")
-vignette("network")
+vignette("fatdiag")
 
 # or
 browseVignettes("diagonals")
@@ -75,9 +71,9 @@ http://qua.st/diagonals/
 
 Development
 -------------
-Development takes place on the [GitHub](http://github.com/) page.
+Development takes place on the [GitHub](https://github.com/) page.
 
-http://github.com/bquast/diagonals
+https://github.com/bquast/diagonals
 
 Bugs can be filed on the issues page on GitHub.
 
