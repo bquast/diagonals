@@ -1,6 +1,9 @@
 diagonals 0.3.0
 ===================
 
+* replace all previous functions with fatdiag
+
+* add fatdig <- function
 
 
 diagonals 0.2.0
