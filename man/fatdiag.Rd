@@ -5,7 +5,7 @@
 \alias{fatdiag<-}
 \title{Fat Matrix Diagonals}
 \usage{
-fatdiag(x = 1, nrow = NULL, ncol = NULL, steps, size)
+fatdiag(x = 1, nrow = NULL, ncol = NULL, steps = NULL, size = NULL)
 
 fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
   <- value
