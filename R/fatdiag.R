@@ -19,7 +19,10 @@
 #' # select a block matrix with four steps
 #' fatdiag(m, steps=4)
 
-fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps, size) {
+fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps=NULL, size=NULL) {
+
+  if (length(size) == 1)
+    size <- c(size, size)
 
     if (length(x) == 1) {
 
@@ -31,22 +34,21 @@ fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps, size) {
         dx <- as.vector(c(nrow, x))
       } else if ( is.null(nrow) && !is.null(ncol)) {
         if ("common denominator x and ncol")
-          stop("ncol and x do not havea common denominator")
-        dx <- as.vector(c(x, ncol))
+          stop("ncol and x do not have a common denominator")
+        dx <- c(x, ncol)
+      } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
+        steps <- x %/% max(size)
+        dx    <- size * steps
       } else {
-        dx <- as.vector( c(x, x) )
+        dx <- c(x, x)
       }
 
-      if (is.null(steps)) {
-        steps <- max(dx) %/% size
-      }
+      if ( !all(dx %% steps == 0) )
+        stop("steps is not an integer divisor of x on all dimensions")
 
       # create a fat diagonal matrix
-      # if ( dx[1] %% steps != 0 ) ## THIS NEEDS TO HOLD FOR BOTH
-      #  stop("steps is not an integer divisor of x on all dimensions")
-      size <- dx %/% steps
       m <- matrix(0, nrow=dx[1], ncol = dx[2])
-      fatdiag(m, steps = steps, size = size[1]) <- 1
+      fatdiag(m, steps = steps, size = size) <- 1
       return(m)
 
     } else if ( length(dim(x)) == 2) {
@@ -119,7 +121,7 @@ fatdiag <- function( x = 1, nrow=NULL, ncol=NULL, steps, size) {
   if( !all(dx %% size == 0) )
     stop("Matrix dimensions are not a multiple of size")
 
-  if (as.integer(size[1]^size[2]*steps) %% lv != 0 && lv != 1L)
+  if (as.integer(size[1]*size[2]*steps) %% lv != 0 && lv != 1L)
     stop("value fat diagonals has wrong length")
 
 
