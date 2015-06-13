@@ -1,0 +1,49 @@
+---
+title: "Fat Diagonals"
+author: "Bastiaan Quast"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Fat Diagonals}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Fat diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](http://cran.r-project.org/web/packages/decompr/index.html) and [gvc](http://cran.r-project.org/web/packages/gvc/index.html) package have each country-industry combination occur on each edge of the matrix. 
+
+A fat diagonal matrix looks like this.
+
+```{r}
+library(diagonals)
+fatdiag(12, steps=3)
+```
+
+The workhorse function of this package is the `fatdiag` function, which tries behave similarly to the `diag` function from the `base` package, but then with diagonals being **fat**.
+
+We can also use the function to assign values to the diagonal.
+
+```{r}
+( m <- matrix(111, nrow=6, ncol=9) )
+fatdiag(m, steps=3) <- 5
+m
+```
+
+As can be seen from the above example, the blocks and matrices do not have to be square.
+
+The diagonal of a matrix can also be extracted.
+
+```{r}
+fatdiag(m, steps=3)
+```
+
+We can also specify the size of the block in stead of the number of steps.
+
+```{r}
+fatdiag(12, size=4)
+```
+
+This also gives us flexibility in terms of having non-square blocks (and consequently matrices).
+
+```{r}
+fatdiag(12, size=c(3,4) )
+```
