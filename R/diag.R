@@ -5,7 +5,6 @@
 #' @param value either a single value or a vector of length equal to that of the current diagonal. Should be of a mode which can be coerced to that of x.
 #' @details The `diag<-` function in the base package allows for two type of value, either of length 1, or of length equal to the length of the diagonal
 #' This function extends that by allowing
-#' @export
 
 
 `diag<-` <- function (x, value) {
