@@ -7,11 +7,10 @@
 \usage{
 fatdiag(x = 1, steps = NULL, size = NULL, nrow = NULL, ncol = NULL)
 
-fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
-  <- value
+fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE) <- value
 }
 \arguments{
-\item{x}{a square matrix where the dimensions are integer multiples of size or integer dividors of steps}
+\item{x}{a matrix where the dimensions are integer multiples of size or integer dividors of steps}
 
 \item{steps}{the required number of steps (block matrices) across the diagonal}
 
@@ -21,16 +20,20 @@ fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE, byrow = TRUE)
 
 \item{ncol}{the number of columns}
 
-\item{value}{replacement value}
-
 \item{on_diagonal}{should the operation be apply to the elements on the fat diagonal.}
 
-\item{byrow}{should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).}
+\item{value}{replacement value}
 }
 \description{
 Fat Matrix Diagonals
+
+fatdiag set
 }
 \details{
 Either steps or size is expected to be provided.
 }
+\section{Functions}{
+\itemize{
+\item \code{fatdiag<-}: the set version of fatdiag
+}}
 

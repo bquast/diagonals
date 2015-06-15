@@ -1,14 +1,11 @@
 #' Fat Matrix Diagonals
 #'
-#' @name fatdiag
-#' @param x a square matrix where the dimensions are integer multiples of size or integer dividors of steps
-#' @param value replacement value
+#' @aliases fatdiag<-
+#' @param x a matrix where the dimensions are integer multiples of size or integer dividors of steps
 #' @param steps the required number of steps (block matrices) across the diagonal
 #' @param size the width or height of the matrix being dropped over the diagonal of matrix x
 #' @param nrow the number of rows
 #' @param ncol the number of columns
-#' @param on_diagonal should the operation be apply to the elements on the fat diagonal.
-#' @param byrow should replacement occur by row, alternatively this is done by column (only relevant for replacement vectors).
 #' @details Either steps or size is expected to be provided.
 #' @export
 
@@ -64,10 +61,13 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
     }
 }
 
-
-#' @rdname fatdiag
+#' @describeIn fatdiag the set version of fatdiag
+#' @title fatdiag set
+#' @aliases fatdiag
+#' @param on_diagonal should the operation be apply to the elements on the fat diagonal.
+#' @param value replacement value
 #' @export
-`fatdiag<-` <- function( x, value, steps = NULL, size = NULL, on_diagonal=TRUE, byrow = TRUE ) {
+`fatdiag<-` <- function( x, steps = NULL, size = NULL, on_diagonal=TRUE, value ) {
 
   # save dimensions
   dx <- dim(x)
@@ -139,15 +139,8 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
       }
     }
 
-
-  # transpose matrix if byrow is false (transpose back after replacement)
-  if(!byrow) x <- t(x)
-
   # replace
   x[cbind(a,b)] <- value
-
-  # transpose back
-  if(!byrow) x <- t(x)
 
   # return output
   return(x)
