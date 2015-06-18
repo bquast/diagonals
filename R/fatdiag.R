@@ -57,7 +57,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
         steps <- x %/% max(size)
         dx    <- size * steps
       } else {
-        size <- c( (length(x) / steps^2), (length(x) / steps^2) )
+        size <- c( sqrt(length(x)/steps), sqrt(length(x)/steps) )
         dx   <- c( (length(x) / size),  (length(x) / size)  )
       }
 
