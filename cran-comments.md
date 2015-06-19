@@ -7,4 +7,4 @@
 - win-builder (devel and R 3.2.0)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
+There were no ERRORs or WARNINGs or notes
