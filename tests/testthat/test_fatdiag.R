@@ -3,7 +3,7 @@ library(diagonals)
 
 
 # define context
-context("fatdiag: create")
+context("fatdiag: create: scalar")
 
 # create objects
 f1 <- fatdiag(12, steps=3)
@@ -24,8 +24,34 @@ test_that("output values match", {
   expect_equal( sum(f1), 48)
   expect_equal( sum(f2), 48)
   expect_equal( sum(f3), 36)
+  expect_equal( sum(f4), 12)
 })
 
+
+# define context
+context("fatdiag: create: vector")
+
+# create objects
+f5 <- fatdiag(1:48, steps=3)
+# f6 <- fatdiag(1:48, size=4)
+# f7 <- fatdiag(36:1, size=c(3,4) )
+# f8 <- fatdiag(36:1, nrow=12, ncol=4, steps=4)
+
+# test output format
+test_that("output format matches", {
+  expect_equal( dim(f1), c(12, 12) )
+  #expect_equal( dim(f2), c(12, 12) )
+  #expect_equal( dim(f3), c(9, 12) )
+  #expect_equal( dim(f4), c(12, 4) )
+})
+
+# test output values
+test_that("output values match", {
+  expect_equal( sum(f5), 1176)
+  #expect_equal( sum(f6), 48)
+  #expect_equal( sum(f7), 36)
+  #expect_equal( sum(f8), 36)
+})
 
 # define context
 context("fatdiag: extract")
@@ -35,10 +61,18 @@ e2 <- fatdiag(f2, steps=4)
 e3 <- fatdiag(f3, steps=3)
 e4 <- fatdiag(f4, steps=3)
 
+# test output format
 test_that("output size matches", {
-  expect_equal( dim(e1), 48 )
-  expect_equal( dim(e2), 36 )
-  expect_equal( dim(e3), 36 )
-  expect_equal( dim(e4), 12 )
+  expect_equal( dim(e1), NULL )
+  expect_equal( dim(e2), NULL )
+  expect_equal( dim(e3), NULL )
+  expect_equal( dim(e4), NULL )
 })
 
+# test output values
+test_that("output values match", {
+  expect_equal( sum(e1), 48)
+  expect_equal( sum(e2), 28)
+  expect_equal( sum(e3), 36)
+  expect_equal( sum(e4), 6)
+})
