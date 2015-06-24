@@ -97,7 +97,7 @@ fatdiag(f3, size = c(3,4)  ) <- 2
 # test output values
 test_that("output values match", {
   expect_equal( sum(f1), 96)
-  #expect_equal( sum(f6), 48)
+  #expect_equal( sum(f6), 96)
   expect_equal( sum(f3), 72)
   #expect_equal( sum(f8), 36)
 })
