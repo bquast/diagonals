@@ -35,14 +35,14 @@ context("fatdiag: create: vector")
 f5 <- fatdiag(1:48, steps=3)
 f6 <- fatdiag(1:48, size=4)
 f7 <- fatdiag(36:1, size=c(3,4) )
-# f8 <- fatdiag(36:1, nrow=12, ncol=4, steps=4)
+f8 <- fatdiag(36:1, nrow=12, ncol=9, steps=3)
 
 # test output format
 test_that("output format matches", {
   expect_equal( dim(f5), c(12, 12) )
   expect_equal( dim(f6), c(12, 12) )
   expect_equal( dim(f7), c(9, 12) )
-  #expect_equal( dim(f4), c(12, 4) )
+  expect_equal( dim(f4), c(12, 4) )
 })
 
 # test output values
@@ -50,7 +50,7 @@ test_that("output values match", {
   expect_equal( sum(f5), 1176)
   expect_equal( sum(f6), 1176)
   expect_equal( sum(f7), 666)
-  #expect_equal( sum(f8), 36)
+  expect_equal( sum(f8), 666)
 })
 
 # define context
