@@ -54,7 +54,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
           stop("ncol and x do not have a common denominator")
         dx <- c(x, ncol)
       } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
-        steps <- x %/% max(size)
+        steps <- length(x) %/% ( max(size) * min(size) )
         dx    <- size * steps
       } else {
         size <- c( sqrt(length(x)/steps), sqrt(length(x)/steps) )
@@ -112,7 +112,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
   if ( is.null(steps) && !is.null(size) ) {
 
     # coerce to integer
-    size <- floor(size)
+    # size <- floor(size)
 
     # create steps
     steps <- max(dx) %/% max(size)
