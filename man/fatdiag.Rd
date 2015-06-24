@@ -36,4 +36,16 @@ Either steps or size is expected to be provided.
 \itemize{
 \item \code{fatdiag<-}: the set version of fatdiag
 }}
+\examples{
+fatdiag(12, steps=3)
+
+( m <- matrix(111, nrow=6, ncol=9) )
+fatdiag(m, steps=3) <- 5
+
+fatdiag(m, steps=3)
+
+fatdiag(12, size=4)
+
+fatdiag(12, size=c(3,4) )
+}
 

@@ -8,6 +8,17 @@
 #' @param ncol the number of columns
 #' @details Either steps or size is expected to be provided.
 #' @export
+#' @examples
+#' fatdiag(12, steps=3)
+#'
+#' ( m <- matrix(111, nrow=6, ncol=9) )
+#' fatdiag(m, steps=3) <- 5
+#'
+#' fatdiag(m, steps=3)
+#'
+#' fatdiag(12, size=4)
+#'
+#' fatdiag(12, size=c(3,4) )
 
 fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 
