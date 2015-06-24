@@ -39,7 +39,7 @@ f5 <- fatdiag(1:48, steps=3)
 
 # test output format
 test_that("output format matches", {
-  expect_equal( dim(f1), c(12, 12) )
+  expect_equal( dim(f5), c(12, 12) )
   #expect_equal( dim(f2), c(12, 12) )
   #expect_equal( dim(f3), c(9, 12) )
   #expect_equal( dim(f4), c(12, 4) )
@@ -75,4 +75,37 @@ test_that("output values match", {
   expect_equal( sum(e2), 28)
   expect_equal( sum(e3), 36)
   expect_equal( sum(e4), 6)
+})
+
+
+# define context
+context("fatdiag<-: scalar")
+
+# create objects
+fatdiag(f1, steps = 3      ) <- 2
+#fatdiag(f2, size = 4       ) <- 2
+fatdiag(f3, size = c(3,4)  ) <- 2
+
+# test output values
+test_that("output values match", {
+  expect_equal( sum(f1), 96)
+  #expect_equal( sum(f6), 48)
+  #expect_equal( sum(f7), 36)
+  #expect_equal( sum(f8), 36)
+})
+
+# define context
+context("fatdiag<-: vector")
+
+# create objects
+fatdiag(f5, steps = 3      ) <- 1:48
+#fatdiag(f6, size = 4       ) <- 1:48
+
+
+# test output values
+test_that("output values match", {
+  expect_equal( sum(f5), 1176)
+  #expect_equal( sum(f6), 48)
+  #expect_equal( sum(f7), 36)
+  #expect_equal( sum(f8), 36)
 })
