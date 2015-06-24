@@ -101,6 +101,10 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 #' @export
 `fatdiag<-` <- function( x, steps = NULL, size = NULL, on_diagonal=TRUE, value ) {
 
+
+  if (length(size) == 1)
+    size <- c(size, size)
+
   # save dimensions
   dx <- dim(x)
   # save value length
