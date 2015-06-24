@@ -14,81 +14,83 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
   if (length(size) == 1)
     size <- c(size, size)
 
-    if (length(x) == 1) {
+  if (length(x) == 1) {
 
-      if ( !is.null(nrow) && !is.null(ncol) ) {
-        dx <- as.vector( c(nrow,ncol) )
-      } else if ( !is.null(nrow) && is.null(ncol)) {
-        if ("common denominator x and nrow")
-          stop("nrow and x do not have a common denominator")
-        dx <- as.vector(c(nrow, x))
-      } else if ( is.null(nrow) && !is.null(ncol)) {
-        if ("common denominator x and ncol")
-          stop("ncol and x do not have a common denominator")
-        dx <- c(x, ncol)
-      } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
-        steps <- x %/% max(size)
-        dx    <- size * steps
-      } else {
-        dx <- c(x, x)
-      }
-
-      if ( !all(dx %% steps == 0) )
-        stop("steps is not an integer divisor of x on all dimensions")
-
-      # create a fat diagonal matrix
-      m <- matrix(0, nrow=dx[1], ncol = dx[2])
-      fatdiag(m, steps = steps, size = size) <- 1
-      return(m)
-
-    } else if ( is.null( dim(x) ) && length(x > 1) ) {
-
-      if ( !is.null(nrow) && !is.null(ncol) ) {
-        dx <- as.vector( c(nrow,ncol) )
-      } else if ( !is.null(nrow) && is.null(ncol)) {
-        if ("common denominator x and nrow")
-          stop("nrow and x do not havea common denominator")
-        dx <- as.vector(c(nrow, x))
-      } else if ( is.null(nrow) && !is.null(ncol)) {
-        if ("common denominator x and ncol")
-          stop("ncol and x do not have a common denominator")
-        dx <- c(x, ncol)
-      } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
-        steps <- length(x) %/% ( max(size) * min(size) )
-        dx    <- size * steps
-      } else {
-        size <- c( sqrt(length(x)/steps), sqrt(length(x)/steps) )
-        dx   <- c( (length(x) / size),  (length(x) / size)  )
-      }
-
-      if ( !all(dx %% steps == 0) )
-        stop("steps is not an integer divisor of x on all dimensions")
-
-      # create a fat diagonal matrix
-      m <- matrix(0, nrow=dx[1], ncol = dx[2])
-      fatdiag(m, steps = steps, size = size) <- x
-      return(m)
-
-    } else if ( length(dim(x)) == 2) {
-
-        # extract the fat diagonal
-
-        dx <- dim(x)
-        size <- dx %/% steps
-        # split dimension according to steps
-        spl1 <- split_vector(1:dx[1], steps = steps)
-        spl2 <- split_vector(1:dx[2], steps = steps)
-        # create vectors
-        a <- vector()
-        b <- vector()
-        for (i in 1:steps) {
-          a <- c(a, rep(spl1[[i]], times = size[2]) )
-          b <- c(b, rep(spl2[[i]], each  = size[1]) )
-        }
-        return( x[cbind(a,b)] )
+    if ( !is.null(nrow) && !is.null(ncol) ) {
+      dx <- as.vector( c(nrow,ncol) )
+    } else if ( !is.null(nrow) && is.null(ncol)) {
+      if ("common denominator x and nrow")
+        stop("nrow and x do not have a common denominator")
+      dx <- as.vector(c(nrow, x))
+    } else if ( is.null(nrow) && !is.null(ncol)) {
+      if ("common denominator x and ncol")
+        stop("ncol and x do not have a common denominator")
+      dx <- c(x, ncol)
+    } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
+      steps <- x %/% max(size)
+      dx    <- size * steps
     } else {
-      stop("x is not a valid vector or matrix")
+      dx <- c(x, x)
     }
+
+    if ( !all(dx %% steps == 0) )
+      stop("steps is not an integer divisor of x on all dimensions")
+
+    # create a fat diagonal matrix
+    m <- matrix(0, nrow=dx[1], ncol = dx[2])
+    fatdiag(m, steps = steps, size = size) <- 1
+    return(m)
+
+  } else if ( is.null( dim(x) ) && length(x > 1) ) {
+
+    if ( !is.null(nrow) && !is.null(ncol) ) {
+      dx <- as.vector( c(nrow,ncol) )
+    } else if ( !is.null(nrow) && is.null(ncol)) {
+      if ("common denominator x and nrow")
+        stop("nrow and x do not havea common denominator")
+      dx <- as.vector(c(nrow, x))
+    } else if ( is.null(nrow) && !is.null(ncol)) {
+      if ("common denominator x and ncol")
+        stop("ncol and x do not have a common denominator")
+      dx <- c(x, ncol)
+    } else if ( is.null(nrow) && is.null(ncol) && is.null(steps) ) {
+      steps <- length(x) %/% ( max(size) * min(size) )
+      dx    <- size * steps
+    } else {
+      size <- c( sqrt(length(x)/steps), sqrt(length(x)/steps) )
+      dx   <- c( (length(x) / size),  (length(x) / size)  )
+    }
+
+    if ( !all(dx %% steps == 0) )
+      stop("steps is not an integer divisor of x on all dimensions")
+
+
+    # create a fat diagonal matrix
+    m <- matrix(0, nrow=dx[1], ncol = dx[2])
+    fatdiag(m, steps = steps, size = size) <- x
+    return(m)
+
+  } else if ( length(dim(x)) == 2) {
+
+    # extract the fat diagonal
+
+    dx <- dim(x)
+    size <- dx %/% steps
+    # split dimension according to steps
+    spl1 <- split_vector(1:dx[1], steps = steps)
+    spl2 <- split_vector(1:dx[2], steps = steps)
+    # create vectors
+    a <- vector()
+    b <- vector()
+    for (i in 1:steps) {
+      a <- c(a, rep(spl1[[i]], times = size[2]) )
+      b <- c(b, rep(spl2[[i]], each  = size[1]) )
+    }
+    return( x[cbind(a,b)] )
+  } else {
+    stop("x is not a valid vector or matrix")
+  }
+
 }
 
 #' @describeIn fatdiag the set version of fatdiag
