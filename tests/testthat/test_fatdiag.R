@@ -33,23 +33,23 @@ context("fatdiag: create: vector")
 
 # create objects
 f5 <- fatdiag(1:48, steps=3)
-# f6 <- fatdiag(1:48, size=4)
-# f7 <- fatdiag(36:1, size=c(3,4) )
+f6 <- fatdiag(1:48, size=4)
+f7 <- fatdiag(36:1, size=c(3,4) )
 # f8 <- fatdiag(36:1, nrow=12, ncol=4, steps=4)
 
 # test output format
 test_that("output format matches", {
   expect_equal( dim(f5), c(12, 12) )
-  #expect_equal( dim(f2), c(12, 12) )
-  #expect_equal( dim(f3), c(9, 12) )
+  expect_equal( dim(f6), c(12, 12) )
+  expect_equal( dim(f7), c(9, 12) )
   #expect_equal( dim(f4), c(12, 4) )
 })
 
 # test output values
 test_that("output values match", {
   expect_equal( sum(f5), 1176)
-  #expect_equal( sum(f6), 48)
-  #expect_equal( sum(f7), 36)
+  expect_equal( sum(f6), 1176)
+  expect_equal( sum(f7), 666)
   #expect_equal( sum(f8), 36)
 })
 
@@ -77,6 +77,14 @@ test_that("output values match", {
   expect_equal( sum(e4), 6)
 })
 
+# define context
+context("fatdiag: errors")
+
+# test output values
+test_that("missing arguments", {
+  #expect_error()
+})
+
 
 # define context
 context("fatdiag<-: scalar")
@@ -94,12 +102,13 @@ test_that("output values match", {
   #expect_equal( sum(f8), 36)
 })
 
+
 # define context
 context("fatdiag<-: vector")
 
 # create objects
 fatdiag(f5, steps = 3      ) <- 1:48
-#fatdiag(f6, size = 4       ) <- 1:48
+fatdiag(f6, size = 4       ) <- 1:48
 
 
 # test output values
@@ -109,3 +118,14 @@ test_that("output values match", {
   #expect_equal( sum(f7), 36)
   #expect_equal( sum(f8), 36)
 })
+
+# define context
+context("fatdiag: errors")
+
+# test output values
+test_that("wrong arguments", {
+  expect_error(fatdiag(10) <- 5)
+  expect_error(fatdiag(1:10) <- 5)
+  expect_error(fatdiag(array(1:1000, dim = c(10,10,10))) <- 5)
+})
+
