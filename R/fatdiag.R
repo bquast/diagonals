@@ -146,12 +146,12 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 
   }
 
-  # check that dimensions of this square matrix are a multiple of size
+  # check that dimensions of this matrix are a multiple of size
   if( !all(dx %% size == 0) )
     stop("Matrix dimensions are not a multiple of size")
 
   if (as.integer(size[1]*size[2]*steps) %% lv != 0 && lv != 1L)
-    stop("value fat diagonals has wrong length")
+    stop("value fat diagonal has wrong length")
 
 
   # split dimension according to steps
