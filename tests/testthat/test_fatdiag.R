@@ -53,6 +53,7 @@ test_that("output values match", {
   expect_equal( sum(f8), 666)
 })
 
+
 # define context
 context("fatdiag: extract")
 
@@ -77,6 +78,7 @@ test_that("output values match", {
   expect_equal( sum(e4), 6)
 })
 
+
 # define context
 context("fatdiag: errors")
 
@@ -91,13 +93,13 @@ context("fatdiag<-: scalar")
 
 # create objects
 fatdiag(f1, steps = 3      ) <- 2
-#fatdiag(f2, size = 4       ) <- 2
+fatdiag(f2, size = 4       ) <- 2
 fatdiag(f3, size = c(3,4)  ) <- 2
 
 # test output values
 test_that("output values match", {
   expect_equal( sum(f1), 96)
-  #expect_equal( sum(f6), 96)
+  expect_equal( sum(f6), 1176)
   expect_equal( sum(f3), 72)
   #expect_equal( sum(f8), 36)
 })
@@ -109,15 +111,16 @@ context("fatdiag<-: vector")
 # create objects
 fatdiag(f5, steps = 3      ) <- 1:48
 fatdiag(f6, size = c(4,4)  ) <- 1:48
-
+fatdiag(f7, size = c(3,4)  ) <- 1:36
 
 # test output values
 test_that("output values match", {
   expect_equal( sum(f5), 1176)
   expect_equal( sum(f6), 1176)
-  #expect_equal( sum(f7), 36)
+  expect_equal( sum(f7), 666)
   #expect_equal( sum(f8), 36)
 })
+
 
 # define context
 context("fatdiag: errors")
