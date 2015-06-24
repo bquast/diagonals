@@ -112,6 +112,8 @@ context("fatdiag<-: vector")
 fatdiag(f5, steps = 3      ) <- 1:48
 fatdiag(f6, size = c(4,4)  ) <- 1:48
 fatdiag(f7, size = c(3,4)  ) <- 1:36
+f9 <- diag(16)
+fatdiag(f9) <- 64:1
 
 # test output values
 test_that("output values match", {
@@ -119,6 +121,7 @@ test_that("output values match", {
   expect_equal( sum(f6), 1176)
   expect_equal( sum(f7), 666)
   #expect_equal( sum(f8), 36)
+  expect_equal( sum(f9), 2080)
 })
 
 
