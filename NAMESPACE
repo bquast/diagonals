@@ -2,4 +2,5 @@
 
 export("fatdiag<-")
 export(fatdiag)
+export(matricise)
 export(split_vector)
