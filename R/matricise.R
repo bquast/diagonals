@@ -2,11 +2,12 @@
 #'
 #' @name matricise
 #' @param x a higher-order array (length(dim(x)) >= 3)
-#' @param long should the output matrix be expanded along the rows, creating a long matrix, if FALSE then the output matrix is expanded along the columns, creating a wide matrix.
+#' @param row_dim the input array dimension which should be added to the row dimension of the output matrix, the value has to be 3 or 4.
+#' @param col_dim the input array dimension which should be added to the column dimension of the output matrix, the value has to be 3 or 4.
 #' @return a matrix (length(dim(x)) == 2 )
 #' @export
 
-matricise <- function(x, row_dim = NULL, col_dim = NULL) {
+matricise <- function(x, row_dim = c(NULL,3,4), col_dim = c(NULL,3,4) ) {
 
   # save dimensions
   dx <- dim(x)
@@ -18,27 +19,43 @@ matricise <- function(x, row_dim = NULL, col_dim = NULL) {
     dr <- 1L
   }
   if (!is.null(col_dim)) {
-    dl <- dx[col_dim]
+    dc <- dx[col_dim]
   } else {
-    dl <- 1L
+    dc <- 1L
   }
 
-  # create matrix
-  m <- matrix(nrow=(dx[1]*dr), ncol=(dx[2]*dl) )
+  # create intermediate array
+  a <- array( dim=c(nrow=(dx[1]*dr), ncol=dx[2], dc ) )
 
   # sort in lists
   s1 <- split_vector( 1:(dx[1]*dr), steps=dx[dr] )
-  # fill output matrix
-  for (i in 1:length(s1) ) {
-    m[s1[[i]], ] <- x[,,i]
+
+  if (row_dim == 3) {
+    # fill output matrix
+    for (i in 1:length(s1) ) {
+      a[s1[[i]], ,] <- x[,,i,]
+    }
+  } else if (row_dim == 4) {
+    # fill output matrix
+    for (i in 1:length(s1) ) {
+      a[s1[[i]], ,] <- x[,,,i]
+    }
+  } else {
+    stop("row_dim is not a valid array dimension")
   }
 
+  # use new dimensions
+  dx <- dim(a)
+
+  # create output matrix
+  m <- matrix(nrow=dx[1],ncol=(dx[2]*dc) )
+
   # sort in lists
-  s2 <- split_vector( 1:(dx[2]*dl), steps=dl )
+  s2 <- split_vector( 1:(dx[2]*dc), steps=dc )
 
   # fill output matrix
   for (i in 1:length(s2) ) {
-    m[, s2[[i]] ] <- x[,,i]
+    m[, s2[[i]] ] <- a[,,i]
   }
 
   # return output matrix

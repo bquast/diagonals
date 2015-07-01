@@ -4,12 +4,14 @@
 \alias{matricise}
 \title{Matricise}
 \usage{
-matricise(x, row_dim = NULL, col_dim = NULL)
+matricise(x, row_dim = c(NULL, 3, 4), col_dim = c(NULL, 3, 4))
 }
 \arguments{
 \item{x}{a higher-order array (length(dim(x)) >= 3)}
 
-\item{long}{should the output matrix be expanded along the rows, creating a long matrix, if FALSE then the output matrix is expanded along the columns, creating a wide matrix.}
+\item{row_dim}{the input array dimension which should be added to the row dimension of the output matrix, the value has to be 3 or 4.}
+
+\item{col_dim}{the input array dimension which should be added to the column dimension of the output matrix, the value has to be 3 or 4.}
 }
 \value{
 a matrix (length(dim(x)) == 2 )
