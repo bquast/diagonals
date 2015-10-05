@@ -5,7 +5,6 @@
 #' @param row_dim the input array dimension which should be added to the row dimension of the output matrix, the value has to be 3 or 4.
 #' @param col_dim the input array dimension which should be added to the column dimension of the output matrix, the value has to be 3 or 4.
 #' @return a matrix (length(dim(x)) == 2 )
-#' @export
 
 matricise <- function(x, row_dim = c(NULL,3,4), col_dim = c(NULL,3,4) ) {
 
