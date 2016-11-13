@@ -1,5 +1,6 @@
 diagonals
 -------------
+[![License](http://img.shields.io/badge/license-GPLv3-brightgreen.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 [![CRAN Version](http://www.r-pkg.org/badges/version/diagonals)](http://cran.r-project.org/package=diagonals)
 [![RStudio Cloud Downloads](http://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](http://cran.rstudio.com/package=diagonals)
 [![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
