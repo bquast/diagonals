@@ -19,4 +19,5 @@ Suggests:
     testthat,
     knitr
 VignetteBuilder: knitr
-RoxygenNote: 5.0.0
+RoxygenNote: 7.0.2
+Encoding: UTF-8
