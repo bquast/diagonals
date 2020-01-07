@@ -1,19 +1,19 @@
 diagonals
 -------------
-[![License](http://img.shields.io/badge/license-GPLv3-brightgreen.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
-[![CRAN Version](http://www.r-pkg.org/badges/version/diagonals)](http://cran.r-project.org/package=diagonals)
-[![RStudio Cloud Downloads](http://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](http://cran.rstudio.com/package=diagonals)
+[![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![CRAN Version](https://www.r-pkg.org/badges/version/diagonals)](https://cran.r-project.org/package=diagonals)
+[![RStudio Cloud Downloads](https://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](https://cran.rstudio.com/package=diagonals)
 [![Travis-CI Build Status](https://travis-ci.org/bquast/diagonals.svg?branch=master)](https://travis-ci.org/bquast/diagonals) 
 [![Coverage Status](https://coveralls.io/repos/github/bquast/diagonals/badge.svg?branch=master)](https://coveralls.io/github/bquast/diagonals?branch=master)
 
 Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.
 
-Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](http://cran.r-project.org/package=decompr) and [gvc](http://cran.r-project.org/package=gvc) package have each country-industry combination occur on each edge of the matrix.
+Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](https://cran.r-project.org/package=decompr) and [gvc](https://cran.r-project.org/package=gvc) package have each country-industry combination occur on each edge of the matrix.
 
 
 Installation
 -------------
-The stable version of the `diagonals` package can be install from [CRAN](http://cran.r-project.org/package=diagonals) using:
+The stable version of the `diagonals` package can be install from [CRAN](https://cran.r-project.org/package=diagonals) using:
 
 ```r
 install.packages("diagonals")
@@ -66,9 +66,9 @@ An overview of the changes is available in the NEWS file.
 news(package="diagonals")
 ```
 
-There is also a blog post with information on my [personal website](http://qua.st/).
+There is also a blog post with information on my [personal website](https://qua.st/).
 
-http://qua.st/diagonals/
+https://qua.st/diagonals/
  
 
 Development
