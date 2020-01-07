@@ -22,4 +22,3 @@ Split Vector
 \details{
 Either steps or size is expected to be provided.
 }
-

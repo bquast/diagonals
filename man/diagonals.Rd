@@ -3,7 +3,6 @@
 \docType{package}
 \name{diagonals}
 \alias{diagonals}
-\alias{diagonals-package}
 \title{diagonals}
 \description{
 Several tools for handling block-matrix diagonals and similar
@@ -14,10 +13,9 @@ are combined along one edge of a matrix. For example, trade-flow data in the
 decompr' and 'gvc' packages have each country-industry combination occur along
 both edges of the matrix.
 }
-\author{
-Bastiaan Quast \email{bquast@gmail.com}
-}
 \seealso{
 http://qua.st/diagonals
 }
-
+\author{
+Bastiaan Quast \email{bquast@gmail.com}
+}

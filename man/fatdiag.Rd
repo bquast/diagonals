@@ -26,6 +26,8 @@ fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE) <- value
 }
 \description{
 Fat Matrix Diagonals
+
+fatdiag set
 }
 \details{
 Either steps or size is expected to be provided.
@@ -34,6 +36,7 @@ Either steps or size is expected to be provided.
 \itemize{
 \item \code{fatdiag<-}: the set version of fatdiag
 }}
+
 \examples{
 fatdiag(12, steps=3)
 
@@ -46,4 +49,3 @@ fatdiag(12, size=4)
 
 fatdiag(12, size=c(3,4) )
 }
-

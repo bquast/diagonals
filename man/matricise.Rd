@@ -19,4 +19,3 @@ a matrix (length(dim(x)) == 2 )
 \description{
 Matricise
 }
-
