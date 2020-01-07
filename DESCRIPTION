@@ -13,7 +13,7 @@ Depends:
     R (>= 2.10)
 License: GPL-3
 LazyData: true
-URL: http://qua.st/diagonals, https://github.com/bquast/diagonals
+URL: https://qua.st/diagonals, https://github.com/bquast/diagonals
 BugReports: https://github.com/bquast/diagonals/issues
 Suggests:
     testthat,
