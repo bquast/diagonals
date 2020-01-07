@@ -134,3 +134,13 @@ test_that("wrong arguments", {
   expect_error(fatdiag(1:10) <- 5)
   expect_error(fatdiag(array(1:1000, dim = c(10,10,10))) <- 5)
 })
+
+
+# define context
+context("split_vector: values")
+
+# test output values
+test_that("values", {
+  expect_equal(split_vector(1:100, size=10)$`5`[5], 45)
+  expect_equal(split_vector(1:100)$`5`, 5)
+})
