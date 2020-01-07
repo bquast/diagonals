@@ -1,10 +1,13 @@
 ## Test environments
 
-- local Windows 7 install, R 3.2.0 Rtools 3.3.0
-- local Linux (Arch) install, R 3.2.0
-- local OSX 10.10.3 install, R 3.2.2
-- ubuntu 12.04 (on travis-ci), R 3.2.0
-- win-builder (devel and R 3.2.2)
+- local Windows 10 install, R 3.6.2
+- local Linux (Arch) install, R 3.6.2
+- ubuntu (on travis-ci), R 3.6.2
+- win-builder devel
 
-## R CMD check results
-There were no ERRORs or WARNINGs or notes
+── R CMD check results ──────────────────────────────────── diagonals 1.0.1 ────
+Duration: 12.4s
+
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+
+R CMD check succeeded
