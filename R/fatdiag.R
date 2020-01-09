@@ -107,7 +107,7 @@ fatdiag <- function( x = 1, steps=NULL, size=NULL, nrow=NULL, ncol=NULL) {
 #' @describeIn fatdiag the set version of fatdiag
 #' @title fatdiag set
 #' @aliases fatdiag
-#' @param on_diagonal should the operation be apply to the elements on the fat diagonal.
+#' @param on_diagonal should the operation be applied to the elements on the fat diagonal.
 #' @param value replacement value
 #' @export
 `fatdiag<-` <- function( x, steps = NULL, size = NULL, on_diagonal=TRUE, value ) {

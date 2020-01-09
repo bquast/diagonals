@@ -20,7 +20,7 @@ fatdiag(x, steps = NULL, size = NULL, on_diagonal = TRUE) <- value
 
 \item{ncol}{the number of columns}
 
-\item{on_diagonal}{should the operation be apply to the elements on the fat diagonal.}
+\item{on_diagonal}{should the operation be applied to the elements on the fat diagonal.}
 
 \item{value}{replacement value}
 }
