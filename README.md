@@ -10,6 +10,10 @@ Block-diagonal matrices can be extracted or removed using two small functions im
 
 Block diagonal matrices occur when we combine two dimensions of a data set along one edge of a matrix. For example, trade-flow data in the [decompr](https://cran.r-project.org/package=decompr) and [gvc](https://cran.r-project.org/package=gvc) package have each country-industry combination occur on each edge of the matrix.
 
+Demonstration
+-------------
+![diagonals demonstration](https://github.com/bquast/R-demo-GIFs/blob/master/diagonals.gif)
+
 
 Installation
 -------------
@@ -22,8 +26,8 @@ install.packages("diagonals")
 The development version, to be used **at your peril**, can be installed using:
 
 ```r
-if (!require('devtools')) install.packages('devtools')
-devtools::install_github("bquast/diagonals")
+if (!require('remotes')) install.packages('remotes')
+remotes::install_github("bquast/diagonals")
 ```
 
 
