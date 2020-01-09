@@ -9,12 +9,11 @@
 #' are combined along one edge of a matrix. For example, trade-flow data in the
 #' decompr' and 'gvc' packages have each country-industry combination occur along
 #' both edges of the matrix.
-#' @seealso http://qua.st/diagonals
+#' @seealso https://qua.st/diagonals
 NULL
 .onAttach <- function(...) {
   packageStartupMessage('
 D I
 A G
     O N
-    A L
-        S')}
+    A L')}

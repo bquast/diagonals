@@ -14,7 +14,7 @@ decompr' and 'gvc' packages have each country-industry combination occur along
 both edges of the matrix.
 }
 \seealso{
-http://qua.st/diagonals
+https://qua.st/diagonals
 }
 \author{
 Bastiaan Quast \email{bquast@gmail.com}
