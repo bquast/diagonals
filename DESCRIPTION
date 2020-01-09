@@ -1,6 +1,6 @@
 Package: diagonals
 Title: Block Diagonal Extraction or Replacement
-Version: 1.0.1
+Version: 1.0.1.9000
 Authors@R: person("Bastiaan", "Quast", email = "bquast@gmail.com", role = c("aut", "cre"))
 Description: Several tools for handling block-matrix diagonals and similar
     constructs are implemented. Block-diagonal matrices can be extracted or removed
