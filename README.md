@@ -77,7 +77,7 @@ https://qua.st/diagonals/
 
 Development
 -------------
-Development takes place on the [GitHub](https://github.com/) page.
+Development takes place on the GitHub page.
 
 https://github.com/bquast/diagonals
 
