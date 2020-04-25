@@ -4,6 +4,12 @@ diagonals 1.0.1
 * remove matricise
 
 
+diagonals 1.0.1
+===================
+
+* remove matricise
+
+
 diagonals 1.0.0
 ===================
 
