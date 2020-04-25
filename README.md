@@ -3,8 +3,8 @@ diagonals
 [![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![CRAN Version](https://www.r-pkg.org/badges/version/diagonals)](https://cran.r-project.org/package=diagonals)
 [![R build status](https://github.com/bquast/diagonals/workflows/R-CMD-check/badge.svg)](https://github.com/bquast/diagonals/actions?workflow=R-CMD-check)
+[![Coverage Status](https://img.shields.io/codecov/c/github/bquast/diagonals/master.svg)](https://codecov.io/bquast/diagonals/diagonals?branch=master)
 [![RStudio Cloud Downloads](https://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](https://cran.r-project.org/package=diagonals)
-[![Coverage Status](https://coveralls.io/repos/github/bquast/diagonals/badge.svg?branch=master)](https://coveralls.io/github/bquast/diagonals?branch=master)
 
 Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.
 
