@@ -150,4 +150,6 @@ context("errors")
 
 test_that("errors", {
   expect_error( fatdiag(12, nrow=5) )
+  expect_error( fatdiag(12, ncol=5) )
+  expect_error( fatdiag(12, steps=5) )
 })
