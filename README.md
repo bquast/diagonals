@@ -1,5 +1,6 @@
 diagonals
--------------
+=========
+
 [![License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
 [![CRAN Version](https://www.r-pkg.org/badges/version/diagonals)](https://cran.r-project.org/package=diagonals)
 [![R build status](https://github.com/bquast/diagonals/workflows/R-CMD-check/badge.svg)](https://github.com/bquast/diagonals/actions?workflow=R-CMD-check)
