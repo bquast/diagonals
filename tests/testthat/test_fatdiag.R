@@ -144,3 +144,10 @@ test_that("values", {
   expect_equal(split_vector(1:100, size=10)$`5`[5], 45)
   expect_equal(split_vector(1:100)$`5`, 5)
 })
+
+# define context
+context("errors")
+
+test_that("errors", {
+  expect_error( fatdiag(12, nrow=5) )
+})
