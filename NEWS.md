@@ -1,3 +1,11 @@
+diagonals 5.2.0
+===================
+
+* sync version number with gvc and decompr
+* switch from travic to GitHub Actions
+* redo documentation
+
+
 diagonals 1.0.1
 ===================
 
