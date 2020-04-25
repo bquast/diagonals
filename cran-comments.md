@@ -1,11 +1,11 @@
 ## Test environments
 
-- local Windows 10 install, R 3.6.2
-- local Linux (Arch) install, R 3.6.2
-- ubuntu (on travis-ci), R 3.6.2
-- win-builder devel
+- local Windows 10 install, R 4.0.0
+- local Linux (Arch) install, R 4.0.0
+- GitHub Actions (Windows Server 2019 (10.0.17763), MacOS (10.15), Ubuntu (16.04) , R 4.0.0
+- win-builder devel and release
 
-── R CMD check results ──────────────────────────────────── diagonals 1.0.1 ────
+── R CMD check results ──────────────────────────────────── diagonals 5.2.0 ────
 Duration: 12.4s
 
 0 errors ✓ | 0 warnings ✓ | 0 notes ✓
