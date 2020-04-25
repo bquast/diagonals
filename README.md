@@ -4,6 +4,7 @@ diagonals
 [![CRAN Version](https://www.r-pkg.org/badges/version/diagonals)](https://cran.r-project.org/package=diagonals)
 [![R build status](https://github.com/bquast/diagonals/workflows/R-CMD-check/badge.svg)](https://github.com/bquast/diagonals/actions?workflow=R-CMD-check)
 [![Coverage Status](https://img.shields.io/codecov/c/github/bquast/diagonals/master.svg)](https://codecov.io/bquast/diagonals/diagonals?branch=master)
+[![Total RStudio Cloud Downloads](http://cranlogs.r-pkg.org/badges/grand-total/diagonals?color=brightgreen)](https://cran.r-project.org/package=diagonals)
 [![RStudio Cloud Downloads](https://cranlogs.r-pkg.org/badges/diagonals?color=brightgreen)](https://cran.r-project.org/package=diagonals)
 
 Block-diagonal matrices can be extracted or removed using two small functions implemented here, in addition, non-square matrices are supported.
