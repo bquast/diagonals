@@ -10,9 +10,11 @@
    - devel
    - release
 
-── R CMD check results ──────────────────────────────────── diagonals 5.2.0 ────
-Duration: 12.4s
 
-0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+## win-builder output
 
-R CMD check succeeded
+* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
+Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
+
+* DONE
+Status: OK
