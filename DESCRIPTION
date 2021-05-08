@@ -17,7 +17,8 @@ URL: https://qua.st/diagonals, https://github.com/bquast/diagonals
 BugReports: https://github.com/bquast/diagonals/issues
 Suggests:
     testthat,
-    knitr
+    knitr,
+    markdown
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
 Encoding: UTF-8
