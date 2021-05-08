@@ -1,18 +1,16 @@
-## Test environments
-
-- local Windows 10 install, R 4.0.0
-- local Linux (Arch) install, R 4.0.0
+# Test environments
+- local Windows 10 install, R 4.0.5
+- local Linux (Arch) install, R 4.0.5
 - GitHub Actions
-   - Windows Server 2019 (10.0.17763)
-   - MacOS (10.15)
-   - Ubuntu (18.04) , R 4.0.0
+   - Windows latest, R release
+   - MacOS latest, R release
+   - MacOS latest, R dev
+   - Ubuntu latest, R release
 - win-builder
    - devel
    - release
 
-
-## win-builder output
-
+# win-builder output
 * checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
 
