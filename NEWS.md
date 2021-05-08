@@ -1,3 +1,9 @@
+diagonals 5.3.0
+===================
+
+* add rmarkdown dependency
+
+
 diagonals 5.2.0
 ===================
 
