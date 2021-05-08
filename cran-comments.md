@@ -16,3 +16,11 @@ Maintainer: 'Bastiaan Quast <bquast@gmail.com>'
 
 * DONE
 Status: OK
+
+# R CMD check
+── R CMD check results ──────────────────────────────────── diagonals 5.3.0 ────
+Duration: 16.2s
+
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+
+R CMD check succeeded
