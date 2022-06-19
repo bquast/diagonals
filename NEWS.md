@@ -1,3 +1,12 @@
+diagonals 6.4.0
+===================
+
+* redo documentation
+* add ORCID
+* switch from Travis to GitHub Actions
+* various URL updates
+
+
 diagonals 5.3.0
 ===================
 
